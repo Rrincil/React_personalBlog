@@ -1,9 +1,5 @@
 @x:auto;
 @redx :red;
-@screen-sm-min:200px;
-@media (min-width:@screen-sm-min){
-
-}
 .header{
   width: 100%;
   height: @x;
@@ -11,4 +7,24 @@
   &:hover{
     background-color: @redx;
   }
+  .container{
+    height: 100%;
+    background-color: aqua !important;
+  }
+  .header2{
+    height: 100%;
+    background-color: bisque;
+  }
+  .row{
+    height: 100%;
+  }
+  .col-md-4{
+    height: 100%;
+    border: 1px solid red;    
+  }
 }
+[class^="col"]{
+  height: 100%;
+  border: 1px solid red;
+}
+
