@@ -1,0 +1,45 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  height: 50px;
+  background: burlywood;
+}
+.header:hover {
+  background-color: #ff0000;
+}
+.header .container {
+  height: 100%;
+  background-color: aqua !important;
+}
+.header .header2 {
+  height: 50px;
+}
+.header .row {
+  height: 100%;
+}
+.header .row .Rincil {
+  padding: 0;
+}
+.header .col-md-4 {
+  height: 100%;
+}
+.header .head111 {
+  height: 100%;
+  background-color: gold;
+}
+.header .head111 P {
+  height: 50px;
+  font-size: larger;
+  padding-top: 15px;
+  font-weight: bolder;
+  text-align: center;
+  margin-bottom: 0;
+}
+.header .head111 .pernalinfo {
+  height: 50px;
+}
+[class^="col"] {
+  height: 100%;
+  border: 1px solid red;
+}

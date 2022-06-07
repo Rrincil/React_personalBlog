@@ -3,11 +3,9 @@ import './index.less'
 export default class index extends Component {
   render() {
     return (
-      <div className='body'>
+      <div className='foot'>
         <div className="container">
-          <div className="row">
-            
-          </div>
+          foot
         </div>
       </div>
     )

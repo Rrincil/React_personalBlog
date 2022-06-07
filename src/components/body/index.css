@@ -1,0 +1,42 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  height: 50px;
+  background: burlywood;
+}
+.header:hover {
+  background-color: #ff0000;
+}
+.header .container {
+  height: 100%;
+  background-color: aqua !important;
+}
+.header .header2 {
+  height: 100%;
+  background-color: bisque;
+}
+.header .row {
+  height: 100%;
+}
+.header .col-md-4 {
+  height: 100%;
+  border: 1px solid red;
+}
+.header .head1 {
+  height: 50px;
+}
+[class^="col"] {
+  height: 100%;
+  border: 1px solid red;
+}
+.body {
+  width: 100%;
+  height: 800px;
+  margin-top: 50px;
+  padding-top: 20px;
+}
+.body .container {
+  height: 100%;
+  background-color: aquamarine;
+}

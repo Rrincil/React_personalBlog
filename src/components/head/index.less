@@ -1,8 +1,11 @@
-@x:auto;
-@redx :red;
+@headerheight:50px;
+@redx :#ff0000;
 .header{
   width: 100%;
-  height: @x;
+  position:fixed;
+  top:0px;
+  // z-index: 999;
+  height: @headerheight;
   background: burlywood;
   &:hover{
     background-color: @redx;
@@ -12,15 +15,33 @@
     background-color: aqua !important;
   }
   .header2{
-    height: 100%;
-    background-color: bisque;
+    height: 50px;
+    // background-color: bisque;
   }
   .row{
     height: 100%;
+    .Rincil{
+      padding: 0;
+    }
   }
   .col-md-4{
     height: 100%;
-    border: 1px solid red;    
+    // border: 1px solid red;    
+  }
+  .head111{
+    height: 100%;
+    background-color: gold;
+    P{
+      height: 50px;
+      font-size: larger;
+      padding-top: 15px;
+      font-weight: bolder;
+      text-align: center;
+      margin-bottom: 0;
+    }
+    .pernalinfo{
+      height: 50px;
+    }
   }
 }
 [class^="col"]{
