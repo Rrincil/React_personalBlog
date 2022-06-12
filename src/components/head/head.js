@@ -1,9 +1,19 @@
 import React, { Component } from 'react'
 //import {}
 import './index.less'
+// import  WithNavigation  from '../../pages/withNavigation'
 import { Button, navtabs } from 'react-bootstrap'
-export default class head extends Component {
+import { Link,useNavigate } from 'react-router-dom'
+
+class head extends Component {
+  tostudy = ()=>{
+    const navigate = useNavigate();
+    navigate(`/home`);
+    // console.log(this.props);
+    // this.props.history.push(`/home`,{id:'id'})
+  }
   render() {
+    const id ='xx'
     return (
       // <Button variant="danger">点击</Button>
       // <Button variant="primary">点击</Button>
@@ -22,7 +32,15 @@ export default class head extends Component {
 
                 <div className=' hidden-xs col-md-4 hidden-sm '>
                   <div className="head111">
-                    <Button variant="primary">点击2</Button>
+                    {/*  */}
+                    <Link 
+                      to='study'
+                      state={{
+                        id:id
+                      }}
+                      >Study</Link>
+                    <Button variant="primary" onClick={this.tostudy}>Study</Button>
+                    
                   </div>
                 </div>
 
@@ -97,3 +115,4 @@ export default class head extends Component {
   }
 }
 
+export default head
