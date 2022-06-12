@@ -1,33 +1,33 @@
 import React, { Component } from 'react'
 import store from '../../../redux/store'
+// 引入ationCreator 专门用于创建acion对象
+import {createDecrement,createIncrement,createIncrementOFIdd,createIncrementAsync} from '../../../redux/count_action'
 export default class index extends Component {
-  // componentDidMount(){
-  //   // 检测redux中的状态的变化，只要变化，就调用render
-  //   store.subscribe(()=>{
-  //     this.setState({})
-  //   })
-  // }
+  componentDidMount(){
+    // 检测redux中的状态的变化，只要变化，就调用render
+    store.subscribe(()=>{
+      this.setState({})
+    })
+  }
   
   increment = ()=>{
     const {value} = this.selected
-    store.dispatch({type:'increment',data:value*1})
+    store.dispatch(createIncrement(value*1))
   }
   decrement = ()=>{
     const {value} = this.selected
-    store.dispatch({type:'decrement',data:value*1})
+    store.dispatch(createDecrement(value*1))
 
   }
   incrementIfOdd = ()=>{
     const {value} = this.selected
-    if(this.state.count%2!=0){
-      this.setState({count:this.state.count+value*1})
+    if(store.getState()%2!=0){
+      this.setState(createIncrementOFIdd(value*1))
     }
   }
   incrementAsync = ()=>{
     const {value} = this.selected
-    setInterval(() => {
-      this.setState({count:this.state.count+value*1})
-    }, 5000);
+    this.setState(createIncrementAsync(value*1,500))
   }
   render() {
     return (

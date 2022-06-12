@@ -8,13 +8,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/store'
 const root = ReactDOM.createRoot(document.getElementById('root'));
-store.subscribe(()=>{
-  root.render(
-    <BrowserRouter>
-        <App/>
-    </BrowserRouter>
-  );
-})
+// store.subscribe(()=>{
+//   root.render(
+//     <BrowserRouter>
+//         <App/>
+//     </BrowserRouter>
+//   );
+// })
 root.render(
   <React.StrictMode>
     <BrowserRouter>

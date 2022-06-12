@@ -1,7 +1,19 @@
 // 为count生成action对象
-function createIncrement(data){
-  return {type:'increment',data}
-}
-function createDecrement(data){
-  return {type:'increment',data}
+// const createDecrement = ()=>({type:'increment',data})
+// function createIncrement(data){
+//   return {type:'increment',data}
+// }
+import { INCREMENT,DECREMENT,INCREMENTIFODD,INCREMENTASYNC } from "./constant"
+import store from "./store"
+export const createIncrement = data=>({type:INCREMENT,data})
+export const createDecrement = data=>({type:DECREMENT,data})
+export const createIncrementOFIdd = data =>({type:INCREMENTIFODD,data})
+// 返回异步action 
+export const createIncrementAsync = (data,time) =>{
+  return ()=>{
+    setTimeout(()=>{
+    store.dispatch({type:INCREMENT,data})
+    // store.setState(createIncrement(data))
+    },time)
+  }
 }
