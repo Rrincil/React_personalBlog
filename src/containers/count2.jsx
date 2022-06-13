@@ -1,34 +1,40 @@
 // 引入UI容器
 // import CountUI from '../../components/body/counter/count2'
 // 引入createIncrement
-import { createIncrement,createDecrement } from '../redux/actions/count';
+import { createIncrement, createDecrement } from '../redux/actions/count';
 //引入connect 连接UI组件与redux
 import { connect } from 'react-redux'
 
 import React, { Component } from 'react'
 class count extends Component {
-  
-  increment = ()=>{
-    const {value} = this.selected
+
+  increment = () => {
+    const { value } = this.selected
     console.log(this.props);
     //使用容器组件传递过来的jia方法
-    this.props.jia(value*1)
+    this.props.jia(value * 1)
   }
-  decrement = ()=>{
-    const {value} = this.selected
+  decrement = () => {
+    const { value } = this.selected
+    this.props.jian(value * 1)
+
 
   }
-  incrementIfOdd = ()=>{
-    const {value} = this.selected
+  incrementIfOdd = () => {
+    const { value } = this.selected
   }
-  incrementAsync = ()=>{
-    const {value} = this.selected
+  incrementAsync = () => {
+    const { value } = this.selected
   }
   render() {
+    console.log(this.props);
     return (
       <div>
+        <p>person组件中的person为{this.props.persons.map(item => {
+          return <li key={item.id}>{item.name}-----{item.age}</li>
+        })}</p>
         <p>当求和为{this.props.count}</p>
-        <select ref={c=>this.selected = c}>
+        <select ref={c => this.selected = c}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -45,10 +51,13 @@ class count extends Component {
 
 
 export default connect(
-  state => ({count:state}),
+  state => ({ 
+    count: state.count,
+    persons: state.person
+   }),
   // action自动分发，自动调用dispatch()
   {
-    jia:createIncrement,//返回一个action对象
-    jian:createDecrement
+    jia: createIncrement,//返回一个action对象
+    jian: createDecrement
   }
 )(count)
