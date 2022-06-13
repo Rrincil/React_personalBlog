@@ -3,12 +3,14 @@ import './index.less'
 import { Outlet } from 'react-router-dom'
 import Count from '../../containers/count2'
 import Person from '../../containers/person'
+import Hooks from '../../components/hooks'
 export default class index extends Component {
   render() {
     return ( 
       <div className='body'>
         <div className="container">
           <div className="row">
+            <Hooks/>
             {/* <Count store={store}/> */}
             <Person/>
             <br/>
