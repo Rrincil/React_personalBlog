@@ -3,8 +3,8 @@
 // function createIncrement(data){
 //   return {type:'increment',data}
 // }
-import { INCREMENT,DECREMENT,INCREMENTIFODD,INCREMENTASYNC } from "./constant"
-import store from "./store"
+import { INCREMENT,DECREMENT,INCREMENTIFODD,INCREMENTASYNC } from "../constant"
+import store from "../store"
 export const createIncrement = data=>({type:INCREMENT,data})
 export const createDecrement = data=>({type:DECREMENT,data})
 export const createIncrementOFIdd = data =>({type:INCREMENTIFODD,data})
@@ -12,7 +12,8 @@ export const createIncrementOFIdd = data =>({type:INCREMENTIFODD,data})
 export const createIncrementAsync = (data,time) =>{
   return ()=>{
     setTimeout(()=>{
-    store.dispatch({type:INCREMENT,data})
+      store.dispatch({type:INCREMENT,data})
+      // return {type:INCREMENT,data}
     // store.setState(createIncrement(data))
     },time)
   }

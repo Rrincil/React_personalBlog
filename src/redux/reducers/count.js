@@ -1,4 +1,4 @@
-import { INCREMENT,DECREMENT,INCREMENTIFODD,INCREMENTASYNC } from "./constant"
+import { INCREMENT,DECREMENT,INCREMENTIFODD,INCREMENTASYNC } from "../constant"
 const initstate = 0
 // 形参默认值初始化 prestate的值
 export default function countreducer(prestate=initstate,action){
