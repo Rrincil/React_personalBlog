@@ -24,9 +24,15 @@
 .header .col-md-4 {
   height: 100%;
 }
+.header .col-sm-4 {
+  height: 100%;
+}
+.header .col-xs-6 {
+  height: 100%;
+}
 .header .head111 {
   height: 100%;
-  background-color: gold;
+  background-color: #f7f7f7;
 }
 .header .head111 P {
   height: 50px;
@@ -42,4 +48,17 @@
 [class^="col"] {
   height: 100%;
   border: 1px solid red;
+}
+.middlestudy {
+  list-style: none;
+  text-decoration: none !important;
+  background-color: #b3fd05 !important;
+}
+.allcate {
+  background-color: none !important;
+  padding-top: 7px !important;
+}
+.avater {
+  background-color: none !important;
+  padding-top: 7px !important;
 }
