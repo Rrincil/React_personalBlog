@@ -142,7 +142,7 @@ class head extends Component {
                           <span className="glyphicon glyphicon-align-left" aria-hidden="true"></span>
                         </button>
                       </div>
-                      <div className='col-xs-1 avater paddingNone'></div>
+                      <div className='col-xs-1 avater paddingNone paddingLeft10'></div>
                       {/*  头像 */}
                       <div className='col-xs-5 avater paddingNone paddingNone'>
                         <Button variant="primary">
