@@ -20,6 +20,7 @@
 }
 .header .row .Rincil {
   padding: 0;
+  background-color: peachpuff !important;
 }
 .header .col-md-4 {
   height: 100%;
@@ -32,7 +33,7 @@
 }
 .header .head111 {
   height: 100%;
-  background-color: #f7f7f7;
+  height: 50px;
 }
 .header .head111 P {
   height: 50px;
@@ -45,13 +46,32 @@
 .header .head111 .pernalinfo {
   height: 50px;
 }
+.header .head222 {
+  height: 70px;
+  background-color: none;
+}
+.header .head222 P {
+  height: 50px;
+  font-size: larger;
+  padding-top: 15px;
+  font-weight: bolder;
+  text-align: center;
+  margin-bottom: 0;
+}
+.header .head222 .pernalinfo {
+  height: 50px;
+}
 [class^="col"] {
   height: 100%;
-  border: 1px solid red;
 }
 .middlestudy {
+  width: 100%;
+  padding: 8px;
+  padding-top: 0 !important;
+}
+.middlestudy .middlestudy2 {
   list-style: none;
-  text-decoration: none !important;
+  padding: 0;
   background-color: #b3fd05 !important;
 }
 .allcate {
@@ -61,4 +81,11 @@
 .avater {
   background-color: none !important;
   padding-top: 7px !important;
+}
+.paddingNone {
+  padding: 0;
+}
+.marginNone {
+  width: 100%;
+  margin: 0;
 }

@@ -1,5 +1,4 @@
 'use strict';
-
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
@@ -113,6 +112,8 @@ checkBrowsers(paths.appPath, isInteractive)
       port,
     };
     const devServer = new WebpackDevServer(serverConfig, compiler);
+    // 配置代理
+    // require('../src/setupProxy')(devServer)
     // Launch WebpackDevServer.
     devServer.startCallback(() => {
       if (isInteractive) {

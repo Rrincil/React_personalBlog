@@ -15,16 +15,16 @@ export default class hooks extends Component {
   showref = ()=>{
     alert(this.myref.current.value)
   }
-  //加1
+  //加1 
   useEffectADD = ()=>{
-    let timer = useEffect(()=>{
-      setInterval(()=>{ 
-        usecount(count+1)
-      },500)
-      return ()=>{     //返回的函数相当于componentWillunmount
-        clearInterval(timer) // 清除定时器
-      }
-    },[])
+    // useEffect(()=>{
+    //   let timer = setInterval(()=>{ 
+    //     usecount(count+1)
+    //   },500)
+    //   return ()=>{     //返回的函数相当于componentWillunmount
+    //     clearInterval(timer) // 清除定时器
+    //   }
+    // },[count])
   }
   //卸载组件
   didmount = ()=>{
