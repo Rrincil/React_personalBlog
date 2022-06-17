@@ -6,7 +6,7 @@ import middlestudyshow from './index.less'
 import { Button, navtabs } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-
+import HeadtoStudy from './headtoStudy'
 class head extends Component {
   searchinfo = React.createRef()
   state = {
@@ -24,37 +24,26 @@ class head extends Component {
       this.setState({ studyshow: 'none' })
     } else {
       let a = [
-        { id: '001', name: '无任何内容', age: 15 }
+        { _id: '001', name: 'Jquery', age: 15 }
       ]
 
-      axios.post(`api/allproduct/togetallmes`).then(res => {
-        console.log('====================================');
-        console.log(res);
-        console.log('====================================');
-        if (res.data) {
-          a = res.data
-          console.log(a);
-          this.setState({ studylist: a })
-          this.setState({ studyshow: 'block' })
-        }
-
-      })
-
-      // // 显示时请求数据
-      // axios.post(`api/allproduct/searchshopname`,{shopname:'好乐购'}).then(res=>{
+      // axios.post(`api/allproduct/togetallmes`).then(res => {
       //   console.log('====================================');
       //   console.log(res);
       //   console.log('====================================');
-      //   if(res.data){
+      //   if (res.data) {
       //     a = res.data
+      //     console.log(a);
+          this.setState({ studylist: a })
+          this.setState({ studyshow: 'block' })
       //   }
-      // })
 
+      // })
 
     }
   }
   toshowitem = (item) => {
-    console.log(item);
+    
   }
   //搜索
   searchto = () => {
@@ -96,7 +85,8 @@ class head extends Component {
                 {/* 仅中屏显示：分类 */}
                 <div className=' hidden-xs col-sm-3  hidden-md hidden-lg'>
                   <div className="head222 allcate">
-                    <Button variant="primary" onClick={() => this.showto("基础和进阶")}>基础和进阶</Button>
+                    <HeadtoStudy/>
+                    {/* <Button variant="primary" onClick={() => this.showto("基础和进阶")}>基础和进阶</Button> */}
                     <div className='middlestudy'>
                       <ul className='middlestudy2' style={{ textDecoration: "none", color: 'red', display: this.state.studyshow }}>
                         {

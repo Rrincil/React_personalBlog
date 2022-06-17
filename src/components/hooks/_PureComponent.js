@@ -5,12 +5,13 @@ export default class Pure_Component extends Component {
     name:'Pure_Component'
   }
   shouldComponentUpdate(nextProps,nextState){
-    // if(this.state != nextState){
-    //   return false
-    // }else{
-    //   return true
-    // }
-    return true
+    // alert(nextProps+'------'+nextState);
+    if(this.state != nextState){
+      return false
+    }else{
+      return true
+    }
+    // return true
   }
   changeName = ()=>{
     this.setState({name:'jjj'})

@@ -1,0 +1,9 @@
+.Comments {
+  width: 100%;
+  height: 300px;
+  background-color: none;
+}
+.Comments .container {
+  height: 100%;
+  background-color: palegreen !important;
+}

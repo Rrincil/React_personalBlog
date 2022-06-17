@@ -5,7 +5,7 @@ import Count from '../../containers/count2'
 import Person from '../../containers/person'
 import Hooks from '../../components/hooks'
 import Context from '../../components/hooks/context'
-import StudyInfo from '../../components/body/studyInfo'
+// import StudyInfo from '../../components/body/studyInfo'
 import PureComponentTo from '../../components/hooks/_PureComponent'
 export default class index extends Component {
   render() {
@@ -13,14 +13,14 @@ export default class index extends Component {
       <div className='body'>
         <div className="container">
           <div className="row">
-            <PureComponentTo/>
-            <StudyInfo/>
-            <Context/>
-            <Hooks/>
+            {/* <PureComponentTo/> */}
+            {/* <StudyInfo/> */}
+            {/* <Context/> */}
+            {/* <Hooks/> */}
             {/* <Count store={store}/> */}
-            <Person/>
-            <br/>
-            <Count/>
+            {/* <Person/> */}
+            {/* <br/> */}
+            {/* <Count/> */}
             {/* <Routes>
               <Route path='/home' element={<Home/>} />
             </Routes> */}
