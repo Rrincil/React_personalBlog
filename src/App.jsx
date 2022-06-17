@@ -3,11 +3,12 @@ import { Suspense } from 'react';
 import './App.css';
 import routes from './routes'
 import { useRoutes } from 'react-router-dom';
+import LoadingComponents from './LoadingComponents'
 function App() {
   const elements =  useRoutes(routes);
   return (
       <div className="App">
-        <Suspense fallback={<h1>Loading</h1>}>
+        <Suspense fallback={<LoadingComponents/>}>
           {elements}
         </Suspense>
       </div>

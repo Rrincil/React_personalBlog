@@ -1,0 +1,28 @@
+.studyinfo {
+  font-size: 20px !important;
+  border-top-right-radius: 6px !important;
+  border-top-left-radius: 6px;
+}
+.studyinfo .TableContents {
+  padding: 0 !important;
+  position: fixed;
+  top: 200px;
+  padding-top: 5px;
+  width: 80px;
+  height: 35px;
+  background-color: none;
+}
+.studyinfo .TableContents Button {
+  background-color: #f85151;
+}
+.studyinfo .TableContents .posiontype {
+  position: relative;
+  float: left;
+  padding-top: 0px;
+}
+.studyinfo .TableContents .posiontype2 {
+  position: relative;
+  float: left;
+  color: brown;
+  padding-top: 10px;
+}

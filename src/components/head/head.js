@@ -6,11 +6,15 @@ import middlestudyshow from './index.less'
 import { Button, navtabs } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import HeadtoStudy from './headtoStudy'
+import HeadtoStudy from './HeadToStudy/headtoStudy'
 class head extends Component {
   searchinfo = React.createRef()
   state = {
     studyshow: 'none',
+    studyshow2: 'none',
+    hidetopic:'block',
+    inputwidth:"none",
+    showmask:'none',
     studylist: []
   }
   tostudy = () => {
@@ -20,38 +24,63 @@ class head extends Component {
     // this.props.history.push(`/home`,{id:'id'})
   }
   showto = (studyname) => {
-    if (this.state.studyshow == 'block') {
-      this.setState({ studyshow: 'none' })
+    let a = [
+      { _id: '001', name: 'HTML', age: 15 },
+      { _id: '002', name: 'CSS3', age: 15 },
+      { _id: '003', name: 'JS', age: 15 }
+    ]
+    if (studyname == '框架') {
+      this.setState({ studylist: a })
+      this.setState({ studyshow2: 'block' })
     } else {
-      let a = [
-        { _id: '001', name: 'Jquery', age: 15 }
-      ]
-
-      // axios.post(`api/allproduct/togetallmes`).then(res => {
-      //   console.log('====================================');
-      //   console.log(res);
-      //   console.log('====================================');
-      //   if (res.data) {
-      //     a = res.data
-      //     console.log(a);
-          this.setState({ studylist: a })
-          this.setState({ studyshow: 'block' })
-      //   }
-
-      // })
+      this.setState({ studylist: a })
+      this.setState({ studyshow: 'block' })
+      this.setState({ hidetopic: 'none' })
+      this.setState({ inputwidth: '100%' })
+      this.setState({ showmask: 'block' })
 
     }
+    // axios.post(`api/allproduct/togetallmes`).then(res => {
+    //   console.log('====================================');
+    //   console.log(res);
+    //   console.log('====================================');
+    //   if (res.data) {
+    //     a = res.data
+    //     console.log(a);
+    // this.setState({ studylist: a })
+    // this.setState({ studyshow: 'block' })
+    //   }
+
+    // })
+  }
+  downto = (studyname) => {
+    if (studyname == '框架') {
+      this.setState({ studyshow2: 'none' })
+    } else {
+      this.setState({ studyshow: 'none' })
+
+    }
+
   }
   toshowitem = (item) => {
-    
   }
-  //搜索
+
+  //恢复搜索框大小，显示其他
+  toshowtopic = () => {
+    this.setState({ inputwidth: "41.66666667%" })
+    this.setState({ hidetopic: 'block' })
+    this.setState({ showmask: 'none' })
+
+  }  
+
+  //搜索内容
   searchto = () => {
     const info = this.searchinfo.current.value
     alert(info)
   }
   render() {
     const id = 'xx'
+    // console.log(this.state.studyshow);
     return (
       // <Button variant="danger">点击</Button>
       // <Button variant="primary">点击</Button>
@@ -64,7 +93,7 @@ class head extends Component {
             <div className="col-md-4 col-sm-9 col-xs-12 header2">
               <div className="row paddingNone">
                 {/* 标题 */}
-                <div className='col-xs-4 Rincil '>
+                <div className='col-xs-4 Rincil ' style={{display: this.state.hidetopic}}>
                   <div className="head111 Rincil">
                     <p>Rrincl'SBlog</p>
                   </div>
@@ -85,13 +114,14 @@ class head extends Component {
                 {/* 仅中屏显示：分类 */}
                 <div className=' hidden-xs col-sm-3  hidden-md hidden-lg'>
                   <div className="head222 allcate">
-                    <HeadtoStudy/>
-                    {/* <Button variant="primary" onClick={() => this.showto("基础和进阶")}>基础和进阶</Button> */}
+
+                    <Button variant="primary" onMouseEnter={() => this.showto("基础和进阶")} >基础和进阶</Button>
                     <div className='middlestudy'>
-                      <ul className='middlestudy2' style={{ textDecoration: "none", color: 'red', display: this.state.studyshow }}>
+                      <ul className='middlestudy2' onMouseLeave={() => this.downto('基础和进阶')} style={{ textDecoration: "none", color: 'red', display: this.state.studyshow }}>
                         {
                           this.state.studylist.map((item) => {
-                            return <li key={item._id} onClick={() => this.toshowitem(item.name)}>{item.name}</li>
+                            // console.log(item.name);
+                            return <HeadtoStudy key={item._id} name={item.name} hh='xx' />
                           })
                         }
                       </ul>
@@ -101,26 +131,41 @@ class head extends Component {
                 {/* 仅中屏显示：搜索*/}
                 <div className=' hidden-xs col-sm-5  hidden-md hidden-lg'>
                   <div className="input-group allcate">
-                    <input type="text" className="form-control" aria-label="..." ref={this.searchinfo} />
+                    <input type="text" className="form-control" aria-label="..." ref={this.searchinfo} onFocus={() => this.showto("基础和进阶")} />
                     <div className="input-group-btn">
-                      <Button variant="primary" onClick={this.searchto}>go!</Button>
+                      <Button variant="primary" onClick={this.searchto} >go!</Button>
                       {/* <button type="button" class="btn btn-default" aria-label="Left Align">KK</button> */}
+                      <ul className='middlestudy2' style={{ textDecoration: "none", color: 'red', display: this.state.studyshow }}>
+                        {/* {
+                          this.state.studylist.map((item) => {
+                            return <HeadtoStudy key={item._id} name={item.name} />
+                          })
+                        } */}
+                      </ul>
                     </div>
                   </div>
                 </div>
 
                 {/* 仅小屏显示：搜索栏*/}
-                <div className=' col-md-4  col-xs-6 hidden-lg hidden-md hidden-sm'>
+                <div className=' col-md-4  col-xs-5 hidden-lg hidden-md hidden-sm' style={{width: this.state.inputwidth}}>
                   <div className="input-group allcate">
-                    <input type="text" className="form-control" aria-label="..." ref={this.searchinfo} />
+                    <input type="text" className="form-control" aria-label="..." ref={this.searchinfo} onFocus={() => this.showto("基础和进阶")} onBlur={this.toshowtopic} />
                     <div className="input-group-btn">
                       <Button variant="primary" onClick={this.searchto}>go!</Button>
                       {/* <button type="button" class="btn btn-default" aria-label="Left Align">KK</button> */}
+                      <ul className='middlestudy2' style={{ display: this.state.showmask }}>
+                        hbhbkjkjk
+                        {/* {
+                          this.state.studylist.map((item) => {
+                            return <HeadtoStudy key={item._id} name={item.name} />
+                          })
+                        } */}
+                      </ul>                    
                     </div>
                   </div>
                 </div>
                 {/* 仅小屏显示：多览所有分类；点击显示具体类别以及头像*/}
-                <div className=' col-md-4  col-xs-2 hidden-lg hidden-md hidden-sm paddingNone'>
+                <div className=' col-md-4  col-xs-3 hidden-lg hidden-md hidden-sm paddingNone' style={{display: this.state.hidetopic}}>
                   <div className="">
                     <div className="row">
                       {/*null */}
@@ -193,8 +238,18 @@ class head extends Component {
                 {/* 中屏:按钮 */}
                 <div className=' hidden-xs col-sm-4  hidden-md hidden-lg '>
                   <div className="head111 allcate">
-                    <Button variant="primary">框架</Button>
+                    <Button variant="primary" onMouseEnter={() => this.showto("框架")} >框架</Button>
+                    <div className='middlestudyframe'>
+                      <ul className='middlestudy2' onMouseLeave={() => this.downto('框架')} style={{ textDecoration: "none", color: 'red', display: this.state.studyshow2 }}>
+                        {
+                          this.state.studylist.map((item) => {
+                            return <HeadtoStudy key={item._id} name={item.name} />
+                          })
+                        }
+                      </ul>
+                    </div>
                   </div>
+
                 </div>
 
                 {/* 大屏：按钮 */}
@@ -207,7 +262,7 @@ class head extends Component {
                 {/* 仅大屏：按钮与更多分类  */}
                 <div className=' hidden-xs hidden-sm col-sm-6 paddingNone'>
                   <div className="row">
-                  <div className='col-sm-1'></div>
+                    <div className='col-sm-1'></div>
                     <div className='col-sm-6'>
                       <div className="head111 allcate paddingNone">
                         <Button variant="primary">前端算法</Button>
@@ -217,7 +272,7 @@ class head extends Component {
                     <div className='col-sm-3 allcate paddingNone'>
                       <Button variant="primary">
                         <span className="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                      </Button>   
+                      </Button>
                     </div>
                     <div className='col-sm-2'></div>
                   </div>
@@ -230,7 +285,7 @@ class head extends Component {
                         <Button variant="primary">
                           <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
                         </Button>
-                      </div>                      
+                      </div>
                     </div>
                     <div className='col-sm-4'></div>
                   </div>
@@ -253,7 +308,6 @@ class head extends Component {
                     </Button>
                   </div>
                 </div>
-
               </div>
             </div>
 

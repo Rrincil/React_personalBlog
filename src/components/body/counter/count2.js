@@ -3,7 +3,7 @@ export default class count2 extends Component {
   
   increment = ()=>{
     const {value} = this.selected
-    console.log(this.props.count);
+    // console.log(this.props.count);
     //使用容器组件传递过来的jia方法
     this.props.jia(value*1)
   }
@@ -18,9 +18,9 @@ export default class count2 extends Component {
     const {value} = this.selected
   }
   render() {
-    console.log('====================================');
-    console.log(this.props);
-    console.log('====================================');
+    // console.log('====================================');
+    // console.log(this.props);
+    // console.log('====================================');
     return (
       <div>
         <p>当求和为{}</p>

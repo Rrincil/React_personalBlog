@@ -1,9 +1,12 @@
 .Comments {
   width: 100%;
   height: 300px;
-  background-color: none;
+  background-color: #1c696e;
 }
 .Comments .container {
   height: 100%;
   background-color: palegreen !important;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  margin-bottom: 10px;
 }

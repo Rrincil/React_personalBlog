@@ -10,7 +10,7 @@
 }
 .header .container {
   height: 100%;
-  background-color: aqua !important;
+  background-color: #cce0db !important;
 }
 .header .header2 {
   height: 50px;
@@ -20,7 +20,11 @@
 }
 .header .row .Rincil {
   padding: 0;
-  background-color: peachpuff !important;
+  background-color: none;
+  font-variant-ligatures: discretionary-ligatures;
+  font-weight: bold;
+  color: brown;
+  text-shadow: 15px 5px 20px gold,5px 50px 20px gold,5px 5px 20px gold;
 }
 .header .col-md-4 {
   height: 100%;
@@ -70,9 +74,30 @@
   padding-top: 0 !important;
 }
 .middlestudy .middlestudy2 {
+  width: 500px;
+  margin-top: 0px;
+  height: 300px;
   list-style: none;
   padding: 0;
-  background-color: #b3fd05 !important;
+  border-radius: 6px;
+  background-color: #dae9b7 !important;
+}
+.middlestudyframe {
+  position: relative;
+  width: 100%;
+  padding: 8px;
+  right: 450px;
+  background-color: none;
+  padding-top: 0 !important;
+}
+.middlestudyframe .middlestudy2 {
+  width: 500px;
+  margin-top: 0px;
+  height: 300px;
+  list-style: none;
+  padding: 0;
+  border-radius: 6px;
+  background-color: #dae9b7 !important;
 }
 .allcate {
   background-color: none !important;
@@ -102,4 +127,27 @@
 .body .container {
   height: 100%;
   background-color: #ffffff;
+}
+.body .TableContents {
+  padding: 0 !important;
+  position: fixed;
+  top: 200px;
+  padding-top: 5px;
+  width: 80px;
+  height: 35px;
+  background-color: none;
+}
+.body .TableContents Button {
+  background-color: #f85151;
+}
+.body .TableContents .posiontype {
+  position: relative;
+  float: left;
+  padding-top: 0px;
+}
+.body .TableContents .posiontype2 {
+  position: relative;
+  float: left;
+  color: brown;
+  padding-top: 10px;
 }

@@ -3,3 +3,7 @@
   height: 300px;
   background-color: #5b5c5f;
 }
+.Swiper .changBorderRadius {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}

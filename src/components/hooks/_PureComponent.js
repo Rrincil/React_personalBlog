@@ -39,7 +39,6 @@ class Child extends Component {
     }else{
       return true
     }
-
   }  
   render() {
     console.log('child');

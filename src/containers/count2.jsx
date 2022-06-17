@@ -27,7 +27,7 @@ class count extends Component {
     const { value } = this.selected
   }
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div>
         <p>person组件中的person为{this.props.persons.map(item => {
