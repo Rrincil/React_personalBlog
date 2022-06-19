@@ -176,6 +176,15 @@
   height: 800px;
   background-color: #d1e4df;
 }
+.smallCate {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  border-radius: 6px;
+  width: 50%;
+  height: 500px;
+  background-color: #ffffff;
+}
 .alert-enter {
   opacity: 0;
   transform: scale(0.9);

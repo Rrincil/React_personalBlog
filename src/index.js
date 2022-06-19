@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from "react";
 import ReactDOM from 'react-dom/client';
+// import ReactDOM from 'react';
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/js/bootstrap';
@@ -14,13 +15,18 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 //   ReactDOM.render(<App/>,document.getElementById('root'));
 // })
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
         <App/>
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>
 );
-
+// ReactDOM.render(
+//   // 17.0版本之后增加<React.StrictMode>（jsx写法） 在严格模式下检查是否代码合理
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
 //reportWebVitals();

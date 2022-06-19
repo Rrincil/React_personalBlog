@@ -20,11 +20,11 @@ export default class index extends Component {
             {/* <PureComponentTo/> */}
             {/* <StudyInfo/> */}
             {/* <Context/> */}
-            <Hooks/>
+            {/* <Hooks/> */}
             {/* <Count store={store}/> */}
             {/* <Person/> */}
             {/* <br/> */}
-            <Count/>
+            {/* <Count/> */}
             {/* <Routes>
               <Route path='/home' element={<Home/>} />
             </Routes> */}

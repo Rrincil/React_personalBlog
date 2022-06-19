@@ -1,17 +1,32 @@
 //import logo from './logo.svg';
 import { Suspense } from 'react';
 import './App.css';
+import { ReactDOM } from 'react';
+import { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import routes from './routes'
 import { useRoutes } from 'react-router-dom';
 import LoadingComponents from './LoadingComponents'
 function App() {
-  const elements =  useRoutes(routes);
+  const elements = useRoutes(routes);
+  const [showLoading,useshowLoading] = useState(true)
   return (
-      <div className="App">
-        <Suspense fallback={<LoadingComponents/>}>
-          {elements}
-        </Suspense>
-      </div>
+    <div className="App">
+      <Suspense fallback={<>
+        <CSSTransition
+          in = {showLoading}
+          timeout = {200}
+          classNames="alert"
+          unmountOnExit          
+        >
+          <div className="loading">
+            Loading
+          </div>
+        </CSSTransition>
+      </>}>
+        {elements}
+      </Suspense>
+    </div>
   );
 }
 

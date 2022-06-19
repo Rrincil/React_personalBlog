@@ -18,8 +18,9 @@ class head extends Component {
     studyshow5: 'none',//前端算法
     hidetopic: 'block',
     inputwidth: "none",
-    // showmask: 'none',
-    showmask2:false,
+    showmask: 'block',
+    showmask2: false,
+    smallCateState: false,// 小屏分类
     studylist: []
   }
   tostudy = () => {
@@ -27,6 +28,16 @@ class head extends Component {
     navigate(`/home`);
     // console.log(this.props);
     // this.props.history.push(`/home`,{id:'id'})
+  }
+  toHeadtoStudy = (data)=>{
+    this.setState({
+      smallCateState:data,
+      studyshow: 'none',//框架
+      studyshow2: 'none',//基础和进阶
+      studyshow3: 'none',//进阶知识
+      studyshow4: 'none',//前端框架
+      studyshow5: 'none',//前端算法         
+    })
   }
   showto = (studyname) => {
     let a = [
@@ -76,8 +87,8 @@ class head extends Component {
     // })
   }
   showsearchmask = () => {
-    this.setState({showmask2: true},()=>{
-    console.log(this.state.showmask2)
+    this.setState({ showmask2: true }, () => {
+      console.log(this.state.showmask2)
     })
     this.setState({ hidetopic: 'none' })
     this.setState({ inputwidth: '100%' })
@@ -106,23 +117,36 @@ class head extends Component {
     this.setState({ inputwidth: "41.66666667%" })
     this.setState({ hidetopic: 'block' })
     // this.setState({ showmask: 'none' })
-    this.setState({showmask2: false},()=>{
-    console.log(this.state.showmask2)
+    this.setState({ showmask2: false }, () => {
+      console.log(this.state.showmask2)
 
     })
-
-
   }
 
   //搜索内容
   searchto = () => {
-    console.log(333);
+    // console.log(333);
+    // this.setState({ showmask2: true })
     const info = this.searchinfo.current.value
-    alert(info)
+    
   }
+
+  // 小屏分类
+  smallCate = () => {
+    let a = [
+      { _id: '001', name: 'HTML', age: 15 },
+      { _id: '002', name: 'CSS3', age: 15 },
+      { _id: '003', name: 'JS', age: 15 }
+    ]
+    this.setState({ studylist: a })    
+    this.setState({ smallCateState: !this.state.smallCateState })
+  }
+  // componentDidUpdate() {
+  //   this.setState({ smallCateState: false })
+  // }
   render() {
     const id = 'xx'
-    // console.log(this.state.studyshow);
+    console.log(this.state.smallCateState);
     return (
       // <Button variant="danger">点击</Button>
       // <Button variant="primary">点击</Button>
@@ -163,7 +187,7 @@ class head extends Component {
                         {
                           this.state.studylist.map((item) => {
                             // console.log(item.name);
-                            return <HeadtoStudy key={item._id} name={item.name} hh='xx' />
+                            return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy}/>
                           })
                         }
                       </ul>
@@ -183,21 +207,22 @@ class head extends Component {
 
                 {/* 仅小屏显示：搜索栏*/}
                 <div className=' col-md-4  col-xs-5 hidden-lg hidden-md hidden-sm' style={{ width: this.state.inputwidth }}>
-                  <div className="input-group allcate" onFocus={this.showsearchmask} onBlur={this.toshowtopic}>
-                    <input type="text" className="form-control" aria-label="..." ref={this.searchinfo} />
+                  <div className="input-group allcate" >
+                    <input type="text" className="form-control" aria-label="..." ref={this.searchinfo} onFocus={this.showsearchmask} onBlur={this.toshowtopic} />
                     <div className="input-group-btn">
                       <Button variant="primary" onClick={this.searchto}>go!</Button>
                       {/* <button type="button" class="btn btn-default" aria-label="Left Align">KK</button> */}
                     </div>
                   </div>
                 </div>
+                {/* 显示搜索遮罩层 */}
                 <CSSTransition
-                  in ={this.state.showmask2}
-                  timeout = {200}
+                  in={this.state.showmask2}
+                  timeout={200}
                   classNames="alert"
                   unmountOnExit
-                  // onEnter={() => this.setState({showmask2:false})}
-                  // onExited={() => this.setState({showmask2:false})}
+                // onEnter={() => this.setState({showmask2:false})}
+                onExited={() => this.setState({showmask2:false})}
                 >
                   {/* style={{ display: this.state.showmask }} */}
                   <ul className='mask' >
@@ -209,6 +234,27 @@ class head extends Component {
                           } */}
                   </ul>
                 </CSSTransition>
+                
+
+                {/* 显示小屏分类 */}
+                <CSSTransition
+                  in={this.state.smallCateState}
+                  timeout={200}
+                  classNames="alert"
+                  unmountOnExit
+                // onEnter={() => this.setState({smallCateState:false})}
+                // onExited={() => this.setState({smallCateState:false})}
+                >
+                  {/* style={{ display: this.state.showmask }} */}
+                  <ul className='smallCate' style={{display:this.state.showmask}}>
+                    xxx
+                    {
+                      this.state.studylist.map((item) => {
+                        return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy}/>
+                      })
+                    }
+                  </ul>
+                </CSSTransition>
                 {/* 仅小屏显示：多览所有分类；点击显示具体类别以及头像*/}
                 <div className=' col-md-4  col-xs-3 hidden-lg hidden-md hidden-sm paddingNone' style={{ display: this.state.hidetopic }}>
                   <div className="">
@@ -218,7 +264,7 @@ class head extends Component {
                       </div>
                       {/* 所有分类 */}
                       <div className='col-xs-3 allcate paddingNone'>
-                        <button type="button" className="btn btn-default " aria-label="Left Align">
+                        <button type="button" className="btn btn-default " aria-label="Left Align" onClick={this.smallCate}>
                           <span className="glyphicon glyphicon-align-left" aria-hidden="true"></span>
                         </button>
                       </div>
@@ -232,7 +278,6 @@ class head extends Component {
                       {/*null */}
                       <div className='col-xs-1 avater paddingNone'>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -245,7 +290,7 @@ class head extends Component {
                       <ul className='advancedKnowledge2' onMouseLeave={() => this.downto('进阶知识')} style={{ textDecoration: "none", color: 'red', display: this.state.studyshow3 }}>
                         {
                           this.state.studylist.map((item) => {
-                            return <HeadtoStudy key={item._id} name={item.name} />
+                            return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy}/>
                           })
                         }
                       </ul>
@@ -297,7 +342,7 @@ class head extends Component {
                       <ul className='middlestudy2' onMouseLeave={() => this.downto('框架')} style={{ textDecoration: "none", color: 'red', display: this.state.studyshow2 }}>
                         {
                           this.state.studylist.map((item) => {
-                            return <HeadtoStudy key={item._id} name={item.name} />
+                            return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy}/>
                           })
                         }
                       </ul>
@@ -314,7 +359,7 @@ class head extends Component {
                       <ul className='frontEndFramework2' onMouseLeave={() => this.downto('前端框架')} style={{ textDecoration: "none", color: 'red', display: this.state.studyshow4 }}>
                         {
                           this.state.studylist.map((item) => {
-                            return <HeadtoStudy key={item._id} name={item.name} />
+                            return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy}/>
                           })
                         }
                       </ul>
@@ -333,7 +378,7 @@ class head extends Component {
                           <ul className='frontEndAlgorithm2' onMouseLeave={() => this.downto('前端算法')} style={{ textDecoration: "none", color: 'red', display: this.state.studyshow5 }}>
                             {
                               this.state.studylist.map((item) => {
-                                return <HeadtoStudy key={item._id} name={item.name} />
+                                return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy}/>
                               })
                             }
                           </ul>
