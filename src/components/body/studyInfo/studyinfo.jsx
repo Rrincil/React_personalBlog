@@ -2,10 +2,12 @@ import React from 'react'
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import Markdown from 'react-markdown';
-import md2 from './studyFiles/Jquery.md'
+import Jquery from './studyFiles/Jquery.md'
+import Jquery from './studyFiles/Jquery.md'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {atomDark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { Button } from 'react-bootstrap'
+import { unmountComponentAtNode } from 'react-dom';
 
 export default function Studyinfo() {
   const [markdown,usemarkdown] = useState('')
@@ -13,11 +15,27 @@ export default function Studyinfo() {
   const [toshowtwo,usetoshowtwo] = useState('none')
   const {state:{name}} = useLocation();
   // console.log(name);
-  fetch(md2)
-  .then(res => res.text())
-  .then(text => {
+  if(name=='Jquery'){
+    fetch(Jquery)
+    .then(res => res.text())
+    .then(text => {
+      console.log(text);
+      usemarkdown(markdown=>markdown=text)
+    });     
+  }else if(name == 'vue'){
+    fetch(Jquery)
+    .then(res => res.text())
+    .then(text => {
+      console.log(text);
+      usemarkdown(markdown=>markdown=text)
+    });     
+  }else{
+    const text = `Here is some JavaScript code:
+    # 没有任何内容
+    `    
     usemarkdown(markdown=>markdown=text)
-  });
+  }
+  
   function toshowContent(){
     usetoshow('none')
     usetoshowtwo('block')
