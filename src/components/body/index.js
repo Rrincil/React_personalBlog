@@ -15,8 +15,17 @@ export default class index extends Component {
       <div className='body'>
         <div className="container">
           <div className="row">
-
-            <Outlet/>
+            {/* <div className='col-lg-8'> */}
+              <Outlet/>
+            {/* </div> */}
+            {/* <div className='col-lg-4'></div> */}
+            {/* <div className='col-lg-2' >
+              <div className="row">
+                <div className="biaoqian">
+                  xxxxxx
+                </div>
+              </div>
+            </div> */}
             {/* <PureComponentTo/> */}
             {/* <StudyInfo/> */}
             {/* <Context/> */}

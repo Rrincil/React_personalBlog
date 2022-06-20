@@ -11,17 +11,26 @@ import { CSSTransition } from 'react-transition-group';
 class head extends Component {
   searchinfo = React.createRef()
   state = {
-    studyshow: 'none',//框架
-    studyshow2: 'none',//基础和进阶
-    studyshow3: 'none',//进阶知识
-    studyshow4: 'none',//前端框架
-    studyshow5: 'none',//前端算法
-    hidetopic: 'block',
-    inputwidth: "none",
-    showmask: 'block',
+    studyshow2: false,//框架
+    studyshow: true,//基础和进阶
+    studyshow3: false,//进阶知识
+    studyshow4: false,//前端框架
+    studyshow5: false,//前端算法
+    hidetopic: true,
+    inputwidth: false,
+    showmask: true,
     showmask2: false,
     smallCateState: false,// 小屏分类
-    studylist: []
+    studylist: [],
+    isxs: false
+  }
+  componentDidMount() {
+    const wigth = window.innerWidth
+    console.log(wigth);
+    if (wigth <= 768) {
+      this.setState({ isxs: true })
+    }
+    this.toHeadtoStudy()
   }
   tostudy = () => {
     const navigate = useNavigate();
@@ -29,48 +38,58 @@ class head extends Component {
     // console.log(this.props);
     // this.props.history.push(`/home`,{id:'id'})
   }
-  toHeadtoStudy = (data)=>{
+  toHeadtoStudy = (data) => {
     this.setState({
-      smallCateState:data,
-      studyshow: 'none',//框架
-      studyshow2: 'none',//基础和进阶
-      studyshow3: 'none',//进阶知识
-      studyshow4: 'none',//前端框架
-      studyshow5: 'none',//前端算法         
+      smallCateState: data,
+      studyshow2: false,//框架
+      studyshow: false,//基础和进阶
+      studyshow3: false,//进阶知识
+      studyshow4: false,//前端框架
+      studyshow5: false,//前端算法         
     })
   }
   showto = (studyname) => {
     let a = [
       { _id: '001', name: 'HTML', age: 15 },
       { _id: '002', name: 'CSS3', age: 15 },
-      { _id: '003', name: 'JS', age: 15 }
+      { _id: '003', name: 'JS', age: 15 },
+      { _id: '004', name: 'Markdown', age: 15 }
+
+    ]
+    let AdvancedStudy = [
+      { _id: '001', name: 'Jquery', age: 15 },
+      { _id: '002', name: 'Vue', age: 15 },
+      { _id: '003', name: 'NodeJs', age: 15 },
+      { _id: '004', name: 'React', age: 15 }
     ]
     if (studyname == '框架') {
-      this.setState({ studylist: a })
-      this.setState({ studyshow2: 'block' })
-      this.setState({ studyshow: 'none' })
+      this.setState({ studylist: AdvancedStudy })
+      this.setState({ studyshow2: true })
+      this.setState({ studyshow: false })
 
     } else if (studyname == '基础和进阶') {
       this.setState({ studylist: a })
-      this.setState({ studyshow: 'block' })
-      this.setState({ studyshow2: 'none' })
+      // this.setState({ studyshow: 'block' })
+      this.setState({ studyshow: true })
+      this.setState({ studyshow2: false })
+
 
     } else if (studyname == '进阶知识') {
       this.setState({ studylist: a })
-      this.setState({ studyshow3: 'block' })
-      this.setState({ studyshow5: 'none' })
-      this.setState({ studyshow4: 'none' })
+      this.setState({ studyshow3: true })
+      this.setState({ studyshow5: false })
+      this.setState({ studyshow4: false })
     } else if (studyname == '前端框架') {
-      this.setState({ studylist: a })
-      this.setState({ studyshow4: 'block' })
-      this.setState({ studyshow5: 'none' })
-      this.setState({ studyshow3: 'none' })
+      this.setState({ studylist: AdvancedStudy })
+      this.setState({ studyshow4: true })
+      this.setState({ studyshow5: false })
+      this.setState({ studyshow3: false })
 
     } else if (studyname == '前端算法') {
       this.setState({ studylist: a })
-      this.setState({ studyshow5: 'block' })
-      this.setState({ studyshow4: 'none' })
-      this.setState({ studyshow3: 'none' })
+      this.setState({ studyshow5: true })
+      this.setState({ studyshow4: false })
+      this.setState({ studyshow3: false })
 
     }
     // axios.post(`api/allproduct/togetallmes`).then(res => {
@@ -97,15 +116,15 @@ class head extends Component {
   }
   downto = (studyname) => {
     if (studyname == '框架') {
-      this.setState({ studyshow2: 'none' })
+      this.setState({ studyshow2: false })
     } else if (studyname == '基础和进阶') {
-      this.setState({ studyshow: 'none' })
+      this.setState({ studyshow: false })
     } else if (studyname == '进阶知识') {
-      this.setState({ studyshow3: 'none' })
+      this.setState({ studyshow3: false })
     } else if (studyname == '前端框架') {
-      this.setState({ studyshow4: 'none' })
+      this.setState({ studyshow4: false })
     } else if (studyname == '前端算法') {
-      this.setState({ studyshow5: 'none' })
+      this.setState({ studyshow5: false })
     }
 
   }
@@ -128,7 +147,7 @@ class head extends Component {
     // console.log(333);
     // this.setState({ showmask2: true })
     const info = this.searchinfo.current.value
-    
+
   }
 
   // 小屏分类
@@ -136,17 +155,40 @@ class head extends Component {
     let a = [
       { _id: '001', name: 'HTML', age: 15 },
       { _id: '002', name: 'CSS3', age: 15 },
-      { _id: '003', name: 'JS', age: 15 }
+      { _id: '003', name: 'JS', age: 15 },
+      { _id: '004', name: 'Markdown', age: 15 },
+      { _id: '001', name: 'Jquery', age: 15 },
+      { _id: '002', name: 'Vue', age: 15 },
+      { _id: '003', name: 'NodeJs', age: 15 },
+      { _id: '004', name: 'React', age: 15 }
+
     ]
-    this.setState({ studylist: a })    
+    this.setState({ studylist: a })
     this.setState({ smallCateState: !this.state.smallCateState })
+
   }
+  // 关闭小屏分类
+  closesmallCate = () => {
+    this.setState({ smallCateState: false })
+
+  }
+  //关闭其他
+  closeOthers = () => {
+    this.setState({
+      studyshow2: false,//框架
+      studyshow: true,//基础和进阶
+      studyshow3: false,//进阶知识
+      studyshow4: false,//前端框架
+      studyshow5: false,//前端算法   
+    })
+  }
+
   // componentDidUpdate() {
   //   this.setState({ smallCateState: false })
   // }
   render() {
     const id = 'xx'
-    console.log(this.state.smallCateState);
+    // console.log(this.state.smallCateState);
     return (
       // <Button variant="danger">点击</Button>
       // <Button variant="primary">点击</Button>
@@ -159,10 +201,13 @@ class head extends Component {
             <div className="col-md-4 col-sm-9 col-xs-12 header2">
               <div className="row paddingNone">
                 {/* 标题 */}
-                <div className='col-xs-4 Rincil ' style={{ display: this.state.hidetopic }}>
+                <div className='col-xs-4 Rincil ' style={{ display: this.state.hidetopic }} >
                   <div className="head111 Rincil">
-                    <p>Rrincl'SBlog</p>
+                    <p>
+                    <a href="https://github.com/Rrincil"> Rrincl'SBlog</a>
+                    </p>
                   </div>
+                <p>欢迎关注：Rrincil的GitHub</p>
                 </div>
                 {/* 仅大屏显示：基础知识 */}
                 <div className=' hidden-xs col-md-4 hidden-sm '>
@@ -182,22 +227,31 @@ class head extends Component {
                   <div className="head222 allcate">
 
                     <Button variant="primary" onMouseEnter={() => this.showto("基础和进阶")} >基础和进阶</Button>
-                    <div className='middlestudy'>
-                      <ul className='middlestudy2' onMouseLeave={() => this.downto('基础和进阶')} style={{ textDecoration: "none", color: 'red', display: this.state.studyshow }}>
-                        {
-                          this.state.studylist.map((item) => {
-                            // console.log(item.name);
-                            return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy}/>
-                          })
-                        }
-                      </ul>
-                    </div>
+                    <CSSTransition
+                      in={this.state.studyshow}
+                      timeout={200}
+                      classNames="alert"
+                      unmountOnExit
+                      // onEnter={() => this.setState({studyshow:false})}
+                      onExited={() => this.setState({ studyshow: false })}
+                    >
+                      <div className='middlestudy'>
+                        <ul className='middlestudy2' onMouseLeave={() => this.downto('基础和进阶')} >
+                          {
+                            this.state.studylist.map((item) => {
+                              // console.log(item.name);
+                              return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy} />
+                            })
+                          }
+                        </ul>
+                      </div>
+                    </CSSTransition>
                   </div>
                 </div>
                 {/* 仅中屏显示：搜索*/}
                 <div className=' hidden-xs col-sm-5  hidden-md hidden-lg'>
                   <div className="input-group allcate" >
-                    <input type="text" className="form-control" aria-label="..." ref={this.searchinfo} />
+                    <input type="text" className="form-control" aria-label="..." ref={this.searchinfo} onFocus={this.closeOthers} />
                     <div className="input-group-btn">
                       <Button variant="primary" onClick={this.searchto} >go!</Button>
                       {/* <button type="button" class="btn btn-default" aria-label="Left Align">KK</button> */}
@@ -205,7 +259,7 @@ class head extends Component {
                   </div>
                 </div>
 
-                {/* 仅小屏显示：搜索栏*/}
+                { /* 仅小屏显示：搜索栏*/}
                 <div className=' col-md-4  col-xs-5 hidden-lg hidden-md hidden-sm' style={{ width: this.state.inputwidth }}>
                   <div className="input-group allcate" >
                     <input type="text" className="form-control" aria-label="..." ref={this.searchinfo} onFocus={this.showsearchmask} onBlur={this.toshowtopic} />
@@ -215,47 +269,32 @@ class head extends Component {
                     </div>
                   </div>
                 </div>
-                {/* 显示搜索遮罩层 */}
+                {/* 
+                {
+                  this.state.isxs ? ( */}
+                {/* /* 显示搜索遮罩层 */}
                 <CSSTransition
                   in={this.state.showmask2}
                   timeout={200}
                   classNames="alert"
                   unmountOnExit
-                // onEnter={() => this.setState({showmask2:false})}
-                onExited={() => this.setState({showmask2:false})}
+                  // onEnter={() => this.setState({showmask2:false})}
+                  onExited={() => this.setState({ showmask2: false })}
                 >
                   {/* style={{ display: this.state.showmask }} */}
                   <ul className='mask' >
                     hbhbkjkjk
                     {/* {
-                            this.state.studylist.map((item) => {
-                              return <HeadtoStudy key={item._id} name={item.name} />
-                            })
-                          } */}
+                                this.state.studylist.map((item) => {
+                                  return <HeadtoStudy key={item._id} name={item.name} />
+                                })
+                              } */}
                   </ul>
                 </CSSTransition>
-                
+                {/* ) : (<></>)
+                } */}
 
-                {/* 显示小屏分类 */}
-                <CSSTransition
-                  in={this.state.smallCateState}
-                  timeout={200}
-                  classNames="alert"
-                  unmountOnExit
-                // onEnter={() => this.setState({smallCateState:false})}
-                // onExited={() => this.setState({smallCateState:false})}
-                >
-                  {/* style={{ display: this.state.showmask }} */}
-                  <ul className='smallCate' style={{display:this.state.showmask}}>
-                    xxx
-                    {
-                      this.state.studylist.map((item) => {
-                        return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy}/>
-                      })
-                    }
-                  </ul>
-                </CSSTransition>
-                {/* 仅小屏显示：多览所有分类；点击显示具体类别以及头像*/}
+                { /* 仅小屏显示：多览所有分类；点击显示具体类别以及头像*/}
                 <div className=' col-md-4  col-xs-3 hidden-lg hidden-md hidden-sm paddingNone' style={{ display: this.state.hidetopic }}>
                   <div className="">
                     <div className="row">
@@ -280,30 +319,79 @@ class head extends Component {
                       </div>
                     </div>
                   </div>
+
+                  {/* /* 显示小屏分类 */}
+                  <CSSTransition
+                    in={this.state.smallCateState}
+                    timeout={200}
+                    classNames="smallcatemovie"
+                    unmountOnExit
+                  // onEnter={() => this.setState({smallCateState:false})}
+                  // onExited={() => this.setState({smallCateState:false})}
+                  >
+                    <div style={{ width: '100%', height: 'auto' }}>
+                      {/* <div className="smallCate" onClick={this.closesmallCate}>
+
+                          </div> */}
+                      {/* style={{ display: this.state.showmask }} */}
+                      <ul className='smallCate2' style={{ display: this.state.showmask }}>
+                        {
+                          this.state.studylist.map((item) => {
+                            return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy} />
+                          })
+                        }
+                      </ul>
+                    </div>
+                  </CSSTransition>
+
+                  <CSSTransition
+                    in={this.state.smallCateState}
+                    timeout={200}
+                    classNames="smallcatemovie2"
+                    unmountOnExit
+                  // onEnter={() => this.setState({smallCateState:false})}
+                  // onExited={() => this.setState({smallCateState:false})}
+                  >
+                    <div style={{ width: '100%', height: 'auto' }}>
+                      <div className="smallCate" onClick={this.closesmallCate}>
+                      </div>
+                    </div>
+                  </CSSTransition>
+
                 </div>
+
 
                 {/* 仅大屏显示：进阶知识  */}
                 <div className='col-sm-4 hidden-xs hidden-sm col-md-4'>
                   <div className="head111 allcate">
                     <Button variant="primary" onMouseEnter={() => this.showto('进阶知识')} >进阶知识</Button>
-                    <div className='advancedKnowledge'>
-                      <ul className='advancedKnowledge2' onMouseLeave={() => this.downto('进阶知识')} style={{ textDecoration: "none", color: 'red', display: this.state.studyshow3 }}>
-                        {
-                          this.state.studylist.map((item) => {
-                            return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy}/>
-                          })
-                        }
-                      </ul>
-                    </div>
+                    <CSSTransition
+                      in={this.state.studyshow3}
+                      timeout={200}
+                      classNames="smallcatemovie2"
+                      unmountOnExit
+                    // onEnter={() => this.setState({smallCateState:false})}
+                    // onExited={() => this.setState({smallCateState:false})}
+                    >
+                      <div className='advancedKnowledge'>
+                        <ul className='advancedKnowledge2' onMouseLeave={() => this.downto('进阶知识')} >
+                          {
+                            this.state.studylist.map((item) => {
+                              return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy} />
+                            })
+                          }
+                        </ul>
+                      </div>
+                    </CSSTransition>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/*中间------ 仅大屏显示：分类，使用懒加载  */}
+            {/*中间------ 仅大屏显示：搜索，使用懒加载  */}
             <div className="col-md-4  hidden-sm hidden-xs header2">
               <div className="input-group allcate">
-                <input type="text" className="form-control" aria-label="..." ref={this.searchinfo} />
+                <input type="text" className="form-control" aria-label="..." ref={this.searchinfo} onFocus={this.closeOthers} />
                 <div className="input-group-btn">
                   <Button variant="primary" onClick={this.searchto}>go!</Button>
                   {/* <button type="button" class="btn btn-default" aria-label="Left Align">KK</button> */}
@@ -338,15 +426,24 @@ class head extends Component {
                 <div className=' hidden-xs col-sm-4  hidden-md hidden-lg '>
                   <div className="head111 allcate">
                     <Button variant="primary" onMouseEnter={() => this.showto("框架")} >框架</Button>
-                    <div className='middlestudyframe'>
-                      <ul className='middlestudy2' onMouseLeave={() => this.downto('框架')} style={{ textDecoration: "none", color: 'red', display: this.state.studyshow2 }}>
-                        {
-                          this.state.studylist.map((item) => {
-                            return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy}/>
-                          })
-                        }
-                      </ul>
-                    </div>
+                    <CSSTransition
+                      in={this.state.studyshow2}
+                      timeout={200}
+                      classNames="smallcatemovie2"
+                      unmountOnExit
+                    // onEnter={() => this.setState({smallCateState:false})}
+                    onExited={() => this.setState({studyshow2:false})}
+                    >
+                      <div className='middlestudyframe'>
+                        <ul className='middlestudy2' onMouseLeave={() => this.downto('框架')} >
+                          {
+                            this.state.studylist.map((item) => {
+                              return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy} />
+                            })
+                          }
+                        </ul>
+                      </div>
+                    </CSSTransition>
                   </div>
 
                 </div>
@@ -355,15 +452,24 @@ class head extends Component {
                 <div className=' hidden-xs col-sm-4 hidden-sm '>
                   <div className="head111 allcate">
                     <Button variant="primary" onMouseEnter={() => this.showto("前端框架")} >前端框架</Button>
-                    <div className='frontEndFramework'>
-                      <ul className='frontEndFramework2' onMouseLeave={() => this.downto('前端框架')} style={{ textDecoration: "none", color: 'red', display: this.state.studyshow4 }}>
-                        {
-                          this.state.studylist.map((item) => {
-                            return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy}/>
-                          })
-                        }
-                      </ul>
-                    </div>
+                    <CSSTransition
+                      in={this.state.studyshow4}
+                      timeout={200}
+                      classNames="smallcatemovie2"
+                      unmountOnExit
+                    // onEnter={() => this.setState({smallCateState:false})}
+                    // onExited={() => this.setState({smallCateState:false})}
+                    >
+                      <div className='frontEndFramework'>
+                        <ul className='frontEndFramework2' onMouseLeave={() => this.downto('前端框架')}>
+                          {
+                            this.state.studylist.map((item) => {
+                              return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy} />
+                            })
+                          }
+                        </ul>
+                      </div>
+                    </CSSTransition>
                   </div>
                 </div>
 
@@ -374,15 +480,24 @@ class head extends Component {
                     <div className='col-sm-6'>
                       <div className="head111 allcate paddingNone">
                         <Button variant="primary" onMouseEnter={() => this.showto("前端算法")}>前端算法</Button>
-                        <div className='frontEndAlgorithm'>
-                          <ul className='frontEndAlgorithm2' onMouseLeave={() => this.downto('前端算法')} style={{ textDecoration: "none", color: 'red', display: this.state.studyshow5 }}>
-                            {
-                              this.state.studylist.map((item) => {
-                                return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy}/>
-                              })
-                            }
-                          </ul>
-                        </div>
+                        <CSSTransition
+                          in={this.state.studyshow5}
+                          timeout={200}
+                          classNames="smallcatemovie2"
+                          unmountOnExit
+                        // onEnter={() => this.setState({smallCateState:false})}
+                        // onExited={() => this.setState({smallCateState:false})}
+                        >
+                          <div className='frontEndAlgorithm'>
+                            <ul className='frontEndAlgorithm2' onMouseLeave={() => this.downto('前端算法')}>
+                              {
+                                this.state.studylist.map((item) => {
+                                  return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy} />
+                                })
+                              }
+                            </ul>
+                          </div>
+                        </CSSTransition>
                       </div>
                     </div>
                     {/* 更多分类  */}

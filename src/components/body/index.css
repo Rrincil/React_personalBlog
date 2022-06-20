@@ -214,6 +214,12 @@
   height: 100%;
   background-color: #ffffff;
 }
+.body .container .biaoqian {
+  width: 100%;
+  height: auto !important;
+  min-height: 500px;
+  background-color: brown;
+}
 .body .TableContents {
   padding: 0 !important;
   position: fixed;

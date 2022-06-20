@@ -3,7 +3,11 @@ import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import Markdown from 'react-markdown';
 import Jquery from './studyFiles/Jquery.md'
-import Jquery from './studyFiles/Jquery.md'
+import MarkdownLearn from './studyFiles/Markdown.md'
+import ReactLearn from './studyFiles/React.md'
+import Vue from './studyFiles/Vue.md'
+import NodeJsLearn from './studyFiles/NodeJs.md'
+
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {atomDark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { Button } from 'react-bootstrap'
@@ -19,21 +23,48 @@ export default function Studyinfo() {
     fetch(Jquery)
     .then(res => res.text())
     .then(text => {
-      console.log(text);
+      // console.log(text);
       usemarkdown(markdown=>markdown=text)
     });     
-  }else if(name == 'vue'){
-    fetch(Jquery)
+  }else if(name == 'Markdown'){
+    fetch(MarkdownLearn)
     .then(res => res.text())
     .then(text => {
-      console.log(text);
+      // console.log(text);
+      usemarkdown(markdown=>markdown=text)
+    });     
+  }else if(name == 'Vue'){
+    fetch(Vue)
+    .then(res => res.text())
+    .then(text => {
+      // console.log(text);
+      usemarkdown(markdown=>markdown=text)
+    });     
+  }else if(name == 'React'){
+    fetch(ReactLearn)
+    .then(res => res.text())
+    .then(text => {
+      // console.log(text);
+      usemarkdown(markdown=>markdown=text)
+    });     
+  }else if(name == 'NodeJs'){
+    fetch(NodeJsLearn)
+    .then(res => res.text())
+    .then(text => {
+      // console.log(text);
       usemarkdown(markdown=>markdown=text)
     });     
   }else{
-    const text = `Here is some JavaScript code:
-    # 没有任何内容
-    `    
-    usemarkdown(markdown=>markdown=text)
+    // const text = `Here is some JavaScript code:
+    // # 没有任何内容
+    // `    
+    // usemarkdown(markdown=>markdown=text)
+    fetch(ReactLearn)
+    .then(res => res.text())
+    .then(text => {
+      // console.log(text);
+      usemarkdown(markdown=>markdown=text)
+    });     
   }
   
   function toshowContent(){
@@ -49,7 +80,7 @@ export default function Studyinfo() {
   return (
     <div className="studyinfo">
       <div className="TableContents">
-        {console.log(name)}
+        {/* {console.log(name)} */}
         <p className='posiontype' style={{position: "relative",float: "left",color: "brown",paddingTop: "0px",display:toshow}}>
         <Button variant="primary" >目录</Button>
         </p>
@@ -62,7 +93,7 @@ export default function Studyinfo() {
       </div>      
     {/* <Markdown source={markdown} /> 被废弃了 */}
     {/* Markdown source------<Markdown>{markdown}</Markdown> */}
-    Markdown source------
+    <h1>{name}</h1>
     <Markdown children={markdown}
               components={{
               code({node, inline, className, children, ...props}) {

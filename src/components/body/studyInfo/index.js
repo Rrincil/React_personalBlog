@@ -12,11 +12,13 @@ class index extends React.PureComponent {
   }
  
   componentDidMount() {
-    fetch(md2)
+    // if(xx){
+      fetch(md2)
       .then(res => res.text())
       .then(text => {
         this.setState({ markdown: text })
-      });
+      });      
+    // }
   }
  
   render() {
