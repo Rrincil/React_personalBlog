@@ -176,7 +176,7 @@ class head extends Component {
   closeOthers = () => {
     this.setState({
       studyshow2: false,//框架
-      studyshow: true,//基础和进阶
+      studyshow: false,//基础和进阶
       studyshow3: false,//进阶知识
       studyshow4: false,//前端框架
       studyshow5: false,//前端算法   
