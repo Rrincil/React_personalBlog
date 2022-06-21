@@ -6,7 +6,7 @@ export default class Pure_Component extends Component {
   }
   shouldComponentUpdate(nextProps,nextState){
     // alert(nextProps+'------'+nextState);
-    if(this.state != nextState){
+    if(this.state !== nextState){
       return false
     }else{
       return true
@@ -34,7 +34,7 @@ export default class Pure_Component extends Component {
 
 class Child extends Component {
   shouldComponentUpdate(nextProps,nextState){
-    if(this.props != nextProps){
+    if(this.props !== nextProps){
       return false
     }else{
       return true

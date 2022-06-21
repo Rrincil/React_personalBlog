@@ -5,10 +5,10 @@ import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import routes from './routes'
 import { useRoutes } from 'react-router-dom';
-import LoadingComponents from './LoadingComponents'
+//import LoadingComponents from './LoadingComponents'
 function App() {
   const elements = useRoutes(routes);
-  const [showLoading,useshowLoading] = useState(true)
+  const [showLoading] = useState(true)
   return (
     <div className="App">
       <Suspense fallback={<>

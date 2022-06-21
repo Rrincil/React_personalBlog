@@ -11,7 +11,7 @@ import NodeJsLearn from './studyFiles/NodeJs.md'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {atomDark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { Button } from 'react-bootstrap'
-import { unmountComponentAtNode } from 'react-dom';
+//import { unmountComponentAtNode } from 'react-dom';
 
 export default function Studyinfo() {
   const [markdown,usemarkdown] = useState('')
@@ -19,35 +19,35 @@ export default function Studyinfo() {
   const [toshowtwo,usetoshowtwo] = useState('none')
   const {state:{name}} = useLocation();
   // console.log(name);
-  if(name=='Jquery'){
+  if(name==='Jquery'){
     fetch(Jquery)
     .then(res => res.text())
     .then(text => {
       // console.log(text);
       usemarkdown(markdown=>markdown=text)
     });     
-  }else if(name == 'Markdown'){
+  }else if(name === 'Markdown'){
     fetch(MarkdownLearn)
     .then(res => res.text())
     .then(text => {
       // console.log(text);
       usemarkdown(markdown=>markdown=text)
     });     
-  }else if(name == 'Vue'){
+  }else if(name === 'Vue'){
     fetch(Vue)
     .then(res => res.text())
     .then(text => {
       // console.log(text);
       usemarkdown(markdown=>markdown=text)
     });     
-  }else if(name == 'React'){
+  }else if(name === 'React'){
     fetch(ReactLearn)
     .then(res => res.text())
     .then(text => {
       // console.log(text);
       usemarkdown(markdown=>markdown=text)
     });     
-  }else if(name == 'NodeJs'){
+  }else if(name === 'NodeJs'){
     fetch(NodeJsLearn)
     .then(res => res.text())
     .then(text => {

@@ -1,5 +1,5 @@
-import React,{Component} from 'react'
-import { ReactDOM } from 'react'
+import React from 'react'
+//import { ReactDOM } from 'react'
 import './index.less'
 export default function LoadingComponents() {
   return (

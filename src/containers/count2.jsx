@@ -21,10 +21,10 @@ class count extends Component {
 
   }
   incrementIfOdd = () => {
-    const { value } = this.selected
+    // const { value } = this.selected
   }
   incrementAsync = () => {
-    const { value } = this.selected
+    // const { value } = this.selected
   }
   render() {
     // console.log(this.props);

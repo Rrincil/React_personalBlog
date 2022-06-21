@@ -1,4 +1,4 @@
-import React,{ReactDOM, useState,useEffect,useRef } from 'react'
+import React,{ useState,useEffect,useRef } from 'react'
 export default function Index() {
 // 定义状态
   // useState 的参数为状态初始值，setInitLoading为变更状态值的方法
@@ -39,7 +39,7 @@ export default function Index() {
       <p>{count}</p>
       <button onClick={add}>加</button>&nbsp;
       <button onClick={useEffectADD}>连续加</button>&nbsp;
-      <button onClick={didmount}>卸载组件</button>&nbsp;
+      {/* <button onClick={didmount}>卸载组件</button>&nbsp; */}
       <button onClick={showref}>显示数据</button>
     </div>
   )

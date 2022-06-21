@@ -22,7 +22,7 @@ export default function Comments() {
           <div className='CommentsState'>
           {
             CommentsState.map((item)=>{
-              if(CommentsState.length != 0){
+              if(CommentsState.length !== 0){
                 return <p key={item.id}>{item.name}</p>
               }
             })  

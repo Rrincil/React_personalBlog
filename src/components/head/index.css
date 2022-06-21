@@ -24,12 +24,22 @@
   font-variant-ligatures: discretionary-ligatures;
   font-weight: bold;
   color: brown;
+  overflow: visible;
   text-shadow: 15px 5px 20px gold,5px 50px 20px gold,5px 5px 20px gold;
 }
 .header .row .Rincil:hover {
   font-size: 30px;
   color: #eeff00;
   text-shadow: 15px 5px 20px gold,5px 50px 20px gold,5px 5px 20px gold;
+}
+.header .row .Rincil .github {
+  position: -webkit-sticky;
+  /* Safari */
+  position: sticky;
+  top: 0;
+  padding: 0;
+  background-color: green;
+  border: 2px solid #4CAF50;
 }
 .header .col-md-4 {
   height: 100%;

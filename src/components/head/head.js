@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 //import {}
 import './index.less'
-import middlestudyshow from './index.less'
+//import middlestudyshow from './index.less'
 // import  WithNavigation  from '../../pages/withNavigation'
-import { Button, navtabs } from 'react-bootstrap'
+import { Button} from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+//import axios from 'axios'
 import HeadtoStudy from './HeadToStudy/headtoStudy'
 import { CSSTransition } from 'react-transition-group';
 class head extends Component {
@@ -26,7 +26,7 @@ class head extends Component {
   }
   componentDidMount() {
     const wigth = window.innerWidth
-    console.log(wigth);
+    // console.log(wigth);
     if (wigth <= 768) {
       this.setState({ isxs: true })
     }
@@ -62,30 +62,30 @@ class head extends Component {
       { _id: '003', name: 'NodeJs', age: 15 },
       { _id: '004', name: 'React', age: 15 }
     ]
-    if (studyname == '框架') {
+    if (studyname === '框架') {
       this.setState({ studylist: AdvancedStudy })
       this.setState({ studyshow2: true })
       this.setState({ studyshow: false })
 
-    } else if (studyname == '基础和进阶') {
+    } else if (studyname === '基础和进阶') {
       this.setState({ studylist: a })
       // this.setState({ studyshow: 'block' })
       this.setState({ studyshow: true })
       this.setState({ studyshow2: false })
 
 
-    } else if (studyname == '进阶知识') {
+    } else if (studyname === '进阶知识') {
       this.setState({ studylist: a })
       this.setState({ studyshow3: true })
       this.setState({ studyshow5: false })
       this.setState({ studyshow4: false })
-    } else if (studyname == '前端框架') {
+    } else if (studyname === '前端框架') {
       this.setState({ studylist: AdvancedStudy })
       this.setState({ studyshow4: true })
       this.setState({ studyshow5: false })
       this.setState({ studyshow3: false })
 
-    } else if (studyname == '前端算法') {
+    } else if (studyname === '前端算法') {
       this.setState({ studylist: a })
       this.setState({ studyshow5: true })
       this.setState({ studyshow4: false })
@@ -115,15 +115,15 @@ class head extends Component {
 
   }
   downto = (studyname) => {
-    if (studyname == '框架') {
+    if (studyname === '框架') {
       this.setState({ studyshow2: false })
-    } else if (studyname == '基础和进阶') {
+    } else if (studyname === '基础和进阶') {
       this.setState({ studyshow: false })
-    } else if (studyname == '进阶知识') {
+    } else if (studyname === '进阶知识') {
       this.setState({ studyshow3: false })
-    } else if (studyname == '前端框架') {
+    } else if (studyname === '前端框架') {
       this.setState({ studyshow4: false })
-    } else if (studyname == '前端算法') {
+    } else if (studyname === '前端算法') {
       this.setState({ studyshow5: false })
     }
 
@@ -146,7 +146,7 @@ class head extends Component {
   searchto = () => {
     // console.log(333);
     // this.setState({ showmask2: true })
-    const info = this.searchinfo.current.value
+    // const info = this.searchinfo.current.value
 
   }
 
@@ -182,12 +182,19 @@ class head extends Component {
       studyshow5: false,//前端算法   
     })
   }
+  scrollRrincil = ()=>{
+    const heightTop = window.screenTop()
+    console.log('====================================');
+    console.log(heightTop);
+    console.log('====================================');
+  }
 
   // componentDidUpdate() {
   //   this.setState({ smallCateState: false })
   // }
   render() {
     const id = 'xx'
+    window.scroll(this.scrollRrincil)
     // console.log(this.state.smallCateState);
     return (
       // <Button variant="danger">点击</Button>
@@ -204,10 +211,10 @@ class head extends Component {
                 <div className='col-xs-4 Rincil ' style={{ display: this.state.hidetopic }} >
                   <div className="head111 Rincil">
                     <p>
-                    <a href="https://github.com/Rrincil"> Rrincl'SBlog</a>
+                    <a href="https://github.com/Rrincil"> Rrincl’sBlog</a>
                     </p>
+                    <p className='github'>欢迎关注：Rrincil的GitHub</p>
                   </div>
-                <p>欢迎关注：Rrincil的GitHub</p>
                 </div>
                 {/* 仅大屏显示：基础知识 */}
                 <div className=' hidden-xs col-md-4 hidden-sm '>
@@ -278,7 +285,6 @@ class head extends Component {
                   timeout={200}
                   classNames="alert"
                   unmountOnExit
-                  // onEnter={() => this.setState({showmask2:false})}
                   onExited={() => this.setState({ showmask2: false })}
                 >
                   {/* style={{ display: this.state.showmask }} */}
@@ -431,8 +437,7 @@ class head extends Component {
                       timeout={200}
                       classNames="smallcatemovie2"
                       unmountOnExit
-                    // onEnter={() => this.setState({smallCateState:false})}
-                    onExited={() => this.setState({studyshow2:false})}
+                      onExited={() => this.setState({studyshow2:false})}
                     >
                       <div className='middlestudyframe'>
                         <ul className='middlestudy2' onMouseLeave={() => this.downto('框架')} >
@@ -457,8 +462,6 @@ class head extends Component {
                       timeout={200}
                       classNames="smallcatemovie2"
                       unmountOnExit
-                    // onEnter={() => this.setState({smallCateState:false})}
-                    // onExited={() => this.setState({smallCateState:false})}
                     >
                       <div className='frontEndFramework'>
                         <ul className='frontEndFramework2' onMouseLeave={() => this.downto('前端框架')}>
@@ -485,8 +488,6 @@ class head extends Component {
                           timeout={200}
                           classNames="smallcatemovie2"
                           unmountOnExit
-                        // onEnter={() => this.setState({smallCateState:false})}
-                        // onExited={() => this.setState({smallCateState:false})}
                         >
                           <div className='frontEndAlgorithm'>
                             <ul className='frontEndAlgorithm2' onMouseLeave={() => this.downto('前端算法')}>
