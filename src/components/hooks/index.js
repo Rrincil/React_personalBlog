@@ -24,9 +24,9 @@ export default function Index() {
     },[])
   }
   //卸载组件
-  function didmount(){
-    ReactDOM.unmountComponentAtNode(document.getElementById('root'))
-  }
+  // function didmount(){
+  //   ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+  // }
 
   function showref(){
     console.log(myref.current.value);

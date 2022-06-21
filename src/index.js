@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom/client';
 // import ReactDOM from 'react';
+// import ReactDOM from 'react';
+// import { ReactDOM } from "react";
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/js/bootstrap';
@@ -12,21 +14,26 @@ import store from './redux/store'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //检测redux中状态的改变，若改变就重新渲染App组件
 // store.subscribe(()=>{
-//   ReactDOM.render(<App/>,document.getElementById('root'));
+//   root.render(<App/>,document.getElementById('root'));
 // })
 root.render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
         <App/>
       </Provider>
     </BrowserRouter>
+  </React.StrictMode>
 );
 // ReactDOM.render(
 //   // 17.0版本之后增加<React.StrictMode>（jsx写法） 在严格模式下检查是否代码合理
 //   <React.StrictMode>
-//     <App />
+//     <BrowserRouter>
+//       <Provider store={store}>
+//         <App />
+//       </Provider>
+//     </BrowserRouter>
 //   </React.StrictMode>,
 //   document.getElementById('root')
 // );
-//reportWebVitals();
+// reportWebVitals();

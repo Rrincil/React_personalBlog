@@ -27,9 +27,9 @@ export default class hooks extends Component {
     // },[count])
   }
   //卸载组件
-  didmount = ()=>{
-    ReactDOM.unmountComponentAtNode(document.getElementById('root'))
-  }
+  // didmount = ()=>{
+  //   ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+  // }
   showref = ()=>{
     alert(this.myref.current.value)
   }

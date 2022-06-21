@@ -1,7 +1,6 @@
 //import logo from './logo.svg';
 import { Suspense } from 'react';
 import './App.css';
-import { ReactDOM } from 'react';
 import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import routes from './routes'
