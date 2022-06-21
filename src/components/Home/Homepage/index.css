@@ -3,3 +3,22 @@
   height: 300px;
   background-color: #717c71;
 }
+.HomePage .weblist {
+  width: 100%;
+  height: 500px;
+  z-index: 10;
+  background-color: none !important;
+}
+.HomePage .weblist .row {
+  background-color: #717c71 !important;
+}
+.HomePage .weblist .one {
+  width: 100%;
+  height: 500px;
+  padding: 20px;
+  background-color: #1c696e;
+}
+.HomePage .weblist .one .webimg {
+  width: 100%;
+  height: auto;
+}

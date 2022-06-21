@@ -1,9 +1,10 @@
 import React from 'react';
-import { Component } from 'react';
+// import { Component } from 'react';
 import Markdown from 'react-markdown';
 import './index.less'
-import md from './studyFiles/README.md';
+// import md from './studyFiles/README.md';
 import md2 from './studyFiles/Jquery.md'
+
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {atomDark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 class index extends React.PureComponent {

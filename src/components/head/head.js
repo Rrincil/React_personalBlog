@@ -219,14 +219,16 @@ class head extends Component {
                 {/* 仅大屏显示：基础知识 */}
                 <div className=' hidden-xs col-md-4 hidden-sm '>
                   <div className="head111 allcate">
-                    {/*  */}
-                    <Link
-                      to='study'
-                      state={{
-                        id: id
-                      }}
-                    >首页</Link>
-                    {/* <Button variant="primary" onClick={this.tostudy}>基础知识</Button> */}
+                    {/* onClick={this.tostudy} */}
+                    <Button variant="primary" >
+                      <Link
+                        style={{color:"red",textDecoration: "none"}}
+                        to='/home/homepage'
+                        state={{
+                          id: id
+                        }}
+                      >首页</Link>                      
+                    </Button>
                   </div>
                 </div>
                 {/* 仅中屏显示：分类 */}

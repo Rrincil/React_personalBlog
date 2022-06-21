@@ -7,7 +7,7 @@ import MarkdownLearn from './studyFiles/Markdown.md'
 import ReactLearn from './studyFiles/React.md'
 import Vue from './studyFiles/Vue.md'
 import NodeJsLearn from './studyFiles/NodeJs.md'
-
+// import axios from 'axios';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {atomDark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { Button } from 'react-bootstrap'
@@ -18,7 +18,7 @@ export default function Studyinfo() {
   const [toshow,usetoshow] = useState('block')
   const [toshowtwo,usetoshowtwo] = useState('none')
   const {state:{name}} = useLocation();
-  // console.log(name);
+  console.log(name);
   if(name==='Jquery'){
     fetch(Jquery)
     .then(res => res.text())
@@ -67,6 +67,9 @@ export default function Studyinfo() {
     });     
   }
   
+  // axios.post(`api/UploadStudys/geturl`,{}).then(res=>{
+
+  // })
   function toshowContent(){
     usetoshow('none')
     usetoshowtwo('block')
