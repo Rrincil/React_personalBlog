@@ -17,10 +17,11 @@ export default function HomePage() {
             {
               weblist.map(item => {
                 return (
-                  <div className='col-lg-4'>
+                  <div className='col-lg-4 col-sm-12 col-xs-12' key={item.id}>
                     <div className="row">
-                      <div className="one" key={item.id}>
+                      <div className="one" >
                         <a href={item.url}>
+                          xxx
                           <img className='webimg' src={item.imgurl} alt="" />
                         </a>
                       </div>                      
