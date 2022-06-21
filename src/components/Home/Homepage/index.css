@@ -26,6 +26,12 @@
 .HomePage .weblist .one .webimg {
   width: 100%;
   height: auto;
+  transition-property: width, height;
+  transition-duration: 500ms, 500ms;
+}
+.HomePage .weblist .one .webimg:hover {
+  width: 120%;
+  height: 120%;
 }
 .s {
   margin-bottom: 20px;
