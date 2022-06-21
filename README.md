@@ -60,3 +60,20 @@ const lessModuleRegex = /\.module\.less$/;
 ```
 ## 三、路由配置及Reux详细配置在React学习笔记中
 - <a style="color:red" herf='https://github.com/Rrincil/React-learning-materials-'>学习笔记链接</a>
+## 三、给标签增加动态属性---使用classnames插件
+- 使用npm i classnames -s
+- 类比Vue v-bind
+```js
+import classNames from 'classnames'
+export default class App extends PureComponent {
+  state={  
+    isActive:true
+  }
+  render() {
+    return (
+        <h2 className={classNames({"active":this.state.isActive},"title")}>我要动态添加class属性</h2>
+    )
+  }
+}
+
+```
