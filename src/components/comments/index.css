@@ -5,13 +5,14 @@
 }
 .Comments .container {
   height: 100%;
-  background-color: palegreen !important;
+  background-color: #1c696e;
 }
 .Comments .CommentsState {
   width: 100%;
   height: auto !important;
   min-height: 300px;
-  border-radius: 6px,6px,0px,0px;
+  margin-top: 50px;
+  border-radius: 6px 6px 0px 0px;
   background-color: #eee;
 }
 .Comments .toComments {

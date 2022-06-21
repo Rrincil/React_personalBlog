@@ -1,6 +1,7 @@
 .HomePage {
   width: 100%;
   height: 300px;
+  margin-bottom: 20px;
   background-color: #717c71;
 }
 .HomePage .weblist {
@@ -10,18 +11,22 @@
   background-color: red !important;
 }
 .HomePage .weblist .row {
-  height: 100%;
+  height: auto;
   padding: 10px;
-  background-color: #1c696e;
+  margin-bottom: 50px;
+  background-color: none;
 }
 .HomePage .weblist .one {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  background-color: #1c696e;
+  background-color: none;
   box-shadow: 0px 0px 20px 10px #0b3d41;
 }
 .HomePage .weblist .one .webimg {
   width: 100%;
   height: auto;
+}
+.s {
+  margin-bottom: 20px;
 }
