@@ -31,4 +31,97 @@
       padding-top: 10px;
     }    
   }  
+  .openTC{
+    position:fixed;
+    top:100px;
+    right:0px;
+    width: 30%;
+    z-index: 99;
+    height: 80%;
+    border-radius: 6px 0 0 6px;
+    // background-color: rgb(184, 177, 177);
+    background-color: rgb(255, 255, 255);
+    padding:2px ;
+
+    .tcitem{
+      width: 100%;
+      height: 100%;
+      border-bottom: 2px solid #eee;
+
+      .tcitem2{
+        width: 100%;
+        height: 100%;
+        // border-top-left-radius: 3px;
+        background-color: rgb(255, 255, 255);
+      }
+
+      .tcitemChild{
+        width: 100%;
+        height: 100%;
+        background-color: #eee;        
+      }
+    }
+  }
+  .openTC2{
+    position: fixed;
+    z-index: 90;
+    top: 0;
+    background-color: rgb(150, 152, 153);
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    // opacity: 0;
+  }
+}
+.TCitemChildrenMovie-enter{
+  -webkit-transform: translateX(100%);
+}
+.TCitemChildrenMovie-enter-active{
+  -webkit-transform: translateX(-20%);
+  transition: all 400ms;
+}
+.TCitemChildrenMovie-exit{
+  -webkit-transform: translateX(-20%);
+}
+.TCitemChildrenMovie-exit-active{
+  -webkit-transform: translateX(30px);
+  transition: all 1000ms;
+
+}
+// 遮罩层
+.TCitemChildrenMovie2-enter{
+  opacity: 0;
+
+}
+
+.TCitemChildrenMovie2-enter-active{
+  opacity: 0.5;
+  transition: opacity 300ms;
+
+}
+.TCitemChildrenMovie2-exit{
+  opacity: 0.5;
+
+}
+.TCitemChildrenMovie2-exit-active{
+  opacity: 0;
+  transition: opacity 300ms;
+
+}
+
+//
+.TCitemChildrenMovie-enter{
+  -webkit-transform: translateY(-100%);
+}
+.TCitemChildrenMovie-enter-active{
+  -webkit-transform: translateY(20%);
+  transition: all 400ms;
+}
+.TCitemChildrenMovie-exit{
+  -webkit-transform: translateY(20%);
+}
+.TCitemChildrenMovie-exit-active{
+  -webkit-transform: translateY(-30px);
+  transition: all 1000ms;
+
 }
