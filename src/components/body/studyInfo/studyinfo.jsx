@@ -7,6 +7,7 @@ import MarkdownLearn from './studyFiles/Markdown.md'
 import ReactLearn from './studyFiles/React.md'
 import Vue from './studyFiles/Vue.md'
 import NodeJsLearn from './studyFiles/NodeJs.md'
+import './index.less'
 // import axios from 'axios';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {atomDark} from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -94,10 +95,10 @@ export default function Studyinfo() {
         <span className="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
         </p>
       </div>      
-    {/* <Markdown source={markdown} /> 被废弃了 */}
-    {/* Markdown source------<Markdown>{markdown}</Markdown> */}
-    <h1>{name}</h1>
-    <Markdown children={markdown}
+      {/* <Markdown source={markdown} /> 被废弃了 */}
+      {/* Markdown source------<Markdown>{markdown}</Markdown> */}
+      <h1 className='studyname'>{name}</h1>
+      <Markdown children={markdown}
               components={{
               code({node, inline, className, children, ...props}) {
                 return !inline &&  (children[0].length > 40 || /\.\/|\//.test(children[0])) ? (
@@ -114,7 +115,7 @@ export default function Studyinfo() {
                 )
               }
             }}     
-    />          
-  </div>
+        />          
+    </div>
   )
 }
