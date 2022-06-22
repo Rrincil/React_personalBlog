@@ -3251,27 +3251,230 @@ export default class index extends Component {
 - 原因：Componenet中的shouldComponentUpdata(nextPorops,nextState)总是返回true
 #### (1).解决原理
 ```jsx
+import React, { Component } from 'react'
+
+export default class Pure_Component extends Component {
+  state = {
+    name:'Pure_Component'
+  }
+  shouldComponentUpdate(nextProps,nextState){
+    // alert(nextProps+'------'+nextState);
+    if(this.state !== nextState){
+      return false
+    }else{
+      return true
+    }
+    // return true
+  }
+  changeName = ()=>{
+    this.setState({name:'jjj'})
+    alert(this.state.name)
+  }
+  render() {
+    console.log('father');
+    const {name} = this.state
+    return (
+      <div>
+        {name}
+        <button onClick={this.changeName}>
+          换名字
+        </button>
+        <Child name={name}/>
+      </div>
+    )
+  }
+}
+
+class Child extends Component {
+  shouldComponentUpdate(nextProps,nextState){
+    if(this.props !== nextProps){
+      return false
+    }else{
+      return true
+    }
+  }  
+  render() {
+    console.log('child');
+    const {name} = this.props
+    return (
+      <div>
+        child-----{name}
+      </div>
+    )
+  }
+}
 
 
 ```
 #### (2).PureComponent使用优化
 - <span style="color:red">注意：只做浅对比：State或者Props改变没</span>
 ```jsx
+import React, { Component } from 'react'
 
+export default class Pure_Component extends Component {
+  state = {
+    name:'Pure_Component'
+  }
+  shouldComponentUpdate(nextProps,nextState){
+    // alert(nextProps+'------'+nextState);
+    if(this.state !== nextState){
+      return false
+    }else{
+      return true
+    } 
+    // return true
+  }
+  changeName = ()=>{
+    this.setState({name:'jjj'})
+    alert(this.state.name)
+  }
+  render() {
+    console.log('father');
+    const {name} = this.state
+    return (
+      <div>
+        {name}
+        <button onClick={this.changeName}>
+          换名字
+        </button>
+        <Child name={name}/>
+      </div>
+    )
+  }
+}
 
+class Child extends Component {
+  shouldComponentUpdate(nextProps,nextState){
+    if(this.state.name !== nextProps.name){
+      return true
+    }else{
+      return false
+    }
+  }  
+  render() {
+    console.log('child');
+    const {name} = this.props
+    return (
+      <div>
+        child-----{name}
+      </div>
+    )
+  }
+}
 ```
 ### 9.2.5 renderProps的使用
-- 
+- 向组件内部动态传入带内容的结构（传入标签）（类比Vue插槽）
 ```jsx
+import React, { Component } from 'react'
+
+export default class _renderProps extends Component {
+  state = {
+    name:'tom'
+  }
+  render() {
+    return (
+      <div>
+        <A>你好</A>
+        <A render = {(name)=><B name={name}/>}/> {/* 预留位置写入组件 */}
+        <A render = {(name)=><C name={name}/>}/>
+      </div>
+    )
+  }
+}
+
+class A extends Component {
+  state = {
+    name:'tomA'
+  }
+  render() {
+    const {name} = this.state
+    return (
+      <div>
+        {this.props.children}   {/* 拿到标签体内容 */}
+        {this.props.render(name)} {/* 预留位置，类似插槽 */}
+      </div>
+    )
+  }
+}
+
+class B extends Component {
+  render() {
+    return (
+      <div>
+        -----B
+      </div>
+    )
+  }
+}
+class C extends Component {
+  render() {
+    return (
+      <div>
+        -----C
+      </div>
+    )
+  }
+}
 
 
 ```
 ### 9.2.5  ErrorBoundary 的使用
-- 
+#### (1)理解错误边界(Error Boundary)
+- 子组件出现错误，限制在子组件，不影响父组件
+- 使用static getDerivedStateFromError()  
+- componentDidCatch()------统计错误次数发送给后台
 ```jsx
+//father.js
+import React, { Component } from 'react'
+import Son from './son'
+export default class father extends Component {
+  state = {
+    errorMes:''
+  }
+  //当father的父组件出现错误时会调用并返回err
+  static getDerivedStateFromError(err){
+    console.log(err);
+    return {errorMes:err}         //返回一个状态对象
+  }
+  componentDidCatch(){
+    //统计错误次数发送给后台
+    console.log('渲染子组件出现错误');
+  }
+  render() {
+    return (
+      <div>father
+        {this.state.errorMes?<p>网络错误（组件出错）</p>:<Son/>}
+      </div>
+    )
+  }
+}
+
+
+//son.js
+import React, { Component } from 'react'
+
+export default class son extends Component {
+  state ={
+    gg:'dd'   /* 字符串map会出错 */
+    // gg :[
+    //   {id:'01',name:'tom'}
+    // ]
+  }
+  render() {
+    return (
+      <div>son
+        {
+          this.state.gg.map(item=>{
+            return <p>{item.name}</p>
+          })
+        }
+      </div>
+    )
+  }
+}
 
 
 ```
-
-
-
+# 十、serve插件
+- npm i serve -g
+- serve build

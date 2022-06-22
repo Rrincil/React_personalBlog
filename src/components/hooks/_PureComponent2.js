@@ -1,17 +1,9 @@
 import React, { Component } from 'react'
+import { PureComponent } from 'react'
 
-export default class Pure_Component extends Component {
+export default class Pure_Component extends PureComponent{
   state = {
     name:'Pure_Component'
-  }
-  shouldComponentUpdate(nextProps,nextState){
-    // alert(nextProps+'------'+nextState);
-    if(this.state !== nextState){
-      return false
-    }else{
-      return true
-    } 
-    // return true
   }
   changeName = ()=>{
     this.setState({name:'jjj'})
@@ -33,13 +25,6 @@ export default class Pure_Component extends Component {
 }
 
 class Child extends Component {
-  shouldComponentUpdate(nextProps,nextState){
-    if(this.state.name !== nextProps.name){
-      return true
-    }else{
-      return false
-    }
-  }  
   render() {
     console.log('child');
     const {name} = this.props

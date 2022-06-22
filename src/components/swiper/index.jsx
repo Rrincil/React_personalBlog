@@ -16,7 +16,6 @@ export default function Swiper() {
       </div>
       <div className="container">
         <div className="row">
-          xx
           {
             imgurlitem.map(item => {
               return (
