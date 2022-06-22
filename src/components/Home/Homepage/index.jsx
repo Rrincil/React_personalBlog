@@ -4,9 +4,9 @@ import Swiper from '../../swiper'
 import { useState } from 'react'
 export default function HomePage() {
   const [weblist, useweblist] = useState([
-    { id: '01', name:'后台管理系统', url: 'http://101.201.220.43:8001', imgurl: 'http://101.201.220.43:3001/img/1652104386582.jpeg' },
-    { id: '02', name:'xxx' ,url: 'http://101.201.220.43:8002', imgurl: 'http://101.201.220.43:3001/img/1652104445976.jpeg' },
-    { id: '03', name:'购物商城' ,url: 'http://101.201.220.43', imgurl: 'http://101.201.220.43:3001/img/1652104445976.jpeg' },
+    { id: '01', name:'后台管理系统', url: 'http://101.201.220.43:8001', imgurl: 'http://101.201.220.43:3002/md/xx.gif' },
+    { id: '02', name:'xxx' ,url: 'http://101.201.220.43:8002', imgurl: "http://101.201.220.43:3002/md/cat3.webp" },
+    { id: '03', name:'购物商城' ,url: 'http://101.201.220.43', imgurl: "http://101.201.220.43:3002/md/money.webp" },
   ])
   return (
     <div className='HomePage'>

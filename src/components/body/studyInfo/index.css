@@ -69,45 +69,45 @@
   width: 100%;
   height: 100%;
 }
+.showtcmovie2-enter {
+  opacity: 0;
+}
+.showtcmovie2-enter-active {
+  opacity: 0.5;
+  transition: opacity 300ms;
+}
+.showtcmovie2-exit {
+  opacity: 0.5;
+}
+.showtcmovie2-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
 .TCitemChildrenMovie-enter {
+  -webkit-transform: scaleY(-1);
+}
+.TCitemChildrenMovie-enter-active {
+  -webkit-transform: scaleY(1);
+  transition: all 400ms;
+}
+.TCitemChildrenMovie-exit {
+  -webkit-transform: scaleY(1);
+}
+.TCitemChildrenMovie-exit-active {
+  -webkit-transform: scaleY(0);
+  transition: all 400ms;
+}
+.showtcmovie-enter {
   -webkit-transform: translateX(100%);
 }
-.TCitemChildrenMovie-enter-active {
+.showtcmovie-enter-active {
   -webkit-transform: translateX(-20%);
   transition: all 400ms;
 }
-.TCitemChildrenMovie-exit {
+.showtcmovie-exit {
   -webkit-transform: translateX(-20%);
 }
-.TCitemChildrenMovie-exit-active {
-  -webkit-transform: translateX(30px);
-  transition: all 1000ms;
-}
-.TCitemChildrenMovie2-enter {
-  opacity: 0;
-}
-.TCitemChildrenMovie2-enter-active {
-  opacity: 0.5;
-  transition: opacity 300ms;
-}
-.TCitemChildrenMovie2-exit {
-  opacity: 0.5;
-}
-.TCitemChildrenMovie2-exit-active {
-  opacity: 0;
-  transition: opacity 300ms;
-}
-.TCitemChildrenMovie-enter {
-  -webkit-transform: translateY(-100%);
-}
-.TCitemChildrenMovie-enter-active {
-  -webkit-transform: translateY(20%);
-  transition: all 400ms;
-}
-.TCitemChildrenMovie-exit {
-  -webkit-transform: translateY(20%);
-}
-.TCitemChildrenMovie-exit-active {
-  -webkit-transform: translateY(-30px);
+.showtcmovie-exit-active {
+  -webkit-transform: translateX(100%);
   transition: all 1000ms;
 }
