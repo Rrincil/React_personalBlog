@@ -152,3 +152,10 @@ div{
 # 三、box-shadow的5个属性
 - box-shadow: 0px 0px 20px 10px  rgb(11, 61, 65) insert（默认是out向外）;
 - 5个属性分别是:(1)x方向（为正向右）,(2)y方向（为正向右）,(3)模糊（值为正，负数默认为0）,(4)模糊的值大小（为正）,(5)模糊方向（默认向外，insert向内）
+# 四、div 文本垂直剧中
+```less
+div{
+  line-height: 200px;
+  vertical-align: middle;
+}
+```

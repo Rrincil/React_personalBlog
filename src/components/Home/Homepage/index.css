@@ -10,6 +10,21 @@
   z-index: 10;
   background-color: red !important;
 }
+.HomePage .weblist .webtop {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 5px;
+  background-color: #eee;
+  font-size: 30px;
+  color: inherit;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 1px 5px 2px #f1dddd, 1px 1px 2px #faf7df, 1px 1px 2px #fffae6;
+  font-family: inherit;
+  line-height: 50px !important;
+  box-shadow: 0 0 20px 10px #5e5d5d;
+  border-radius: 6px;
+}
 .HomePage .weblist .row {
   height: auto;
   padding: 10px;
@@ -27,7 +42,9 @@
 }
 .HomePage .weblist .one a {
   text-decoration: none;
-  color: crimson;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
 }
 .HomePage .weblist .one .webimg {
   width: 100%;

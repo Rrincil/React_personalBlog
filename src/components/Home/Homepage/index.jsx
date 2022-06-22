@@ -4,15 +4,18 @@ import Swiper from '../../swiper'
 import { useState } from 'react'
 export default function HomePage() {
   const [weblist, useweblist] = useState([
-    { id: '01', url: 'http://101.201.220.43:8001', imgurl: 'http://101.201.220.43:3001/img/1652104386582.jpeg' },
-    { id: '02', url: 'http://101.201.220.43:8002', imgurl: 'http://101.201.220.43:3001/img/1652104445976.jpeg' },
-    { id: '03', url: 'http://101.201.220.43', imgurl: 'http://101.201.220.43:3001/img/1652104445976.jpeg' },
+    { id: '01', name:'后台管理系统', url: 'http://101.201.220.43:8001', imgurl: 'http://101.201.220.43:3001/img/1652104386582.jpeg' },
+    { id: '02', name:'xxx' ,url: 'http://101.201.220.43:8002', imgurl: 'http://101.201.220.43:3001/img/1652104445976.jpeg' },
+    { id: '03', name:'购物商城' ,url: 'http://101.201.220.43', imgurl: 'http://101.201.220.43:3001/img/1652104445976.jpeg' },
   ])
   return (
     <div className='HomePage'>
       <Swiper />
       <div className='weblist'>
         <div className="container">
+          <div className="webtop">
+            网站展示----友情链接
+          </div>
           <div className="row marginingbuttom">
             {
               weblist.map(item => {
@@ -21,7 +24,7 @@ export default function HomePage() {
                     <div className="row">
                       <div className="one" >
                         <a href={item.url}>
-                          xxx
+                          {item.name}
                           <img className='webimg' src={item.imgurl} alt="" />
                         </a>
                       </div>                      
