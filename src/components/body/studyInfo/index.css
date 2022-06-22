@@ -51,9 +51,11 @@
 .studyinfo .openTC .tcitem .tcitem2 {
   width: 100%;
   height: 100%;
+  z-index: 9999;
   background-color: #ffffff;
 }
 .studyinfo .openTC .tcitem .tcitemChild {
+  z-index: 90;
   width: 100%;
   height: 100%;
   background-color: #eee;
