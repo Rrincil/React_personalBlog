@@ -6,6 +6,9 @@
   height: 50px;
   background: burlywood;
 }
+.header Button {
+  background-color: #337ab7 !important;
+}
 .header:hover {
   background-color: #ff0000;
 }
@@ -89,7 +92,7 @@
   padding-top: 0 !important;
 }
 .middlestudy .middlestudy2 {
-  width: auto;
+  width: 100%;
   margin-top: 0px;
   height: 300px;
   list-style: none;
@@ -210,8 +213,16 @@
   z-index: 99;
   right: 0px;
   top: 0px;
+  padding: 0;
   border-radius: 6px 0 0 6px;
   opacity: 1;
+}
+.smallCate2 .smallcate3 {
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  border: 1px solid rebeccapurple;
+  background-color: #ffc0c0;
 }
 .alert-enter {
   opacity: 0;
@@ -231,22 +242,18 @@
   transition: opacity 300ms, transform 300ms;
 }
 .smallcatemovie-enter {
-  opacity: 0;
-  transform: translateX(0);
+  -webkit-transform: translateX(100%);
 }
 .smallcatemovie-enter-active {
-  opacity: 1;
-  transform: translateX(-30%);
-  transition: opacity 300ms, transform 1000ms;
+  -webkit-transform: translateX(-20%);
+  transition: all 400ms;
 }
 .smallcatemovie-exit {
-  opacity: 1;
-  transform: translateX(0);
+  -webkit-transform: translateX(-20%);
 }
 .smallcatemovie-exit-active {
-  opacity: 0;
-  transform: translateX(-30%);
-  transition: opacity 300ms, transform 1000ms;
+  -webkit-transform: translateX(100%);
+  transition: all 400ms;
 }
 .smallcatemovie2-enter {
   opacity: 0;

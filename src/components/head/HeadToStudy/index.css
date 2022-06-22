@@ -1,12 +1,23 @@
 .headtoStudy {
-  width: 80px;
+  width: 100%;
   height: auto;
   float: left;
   background-color: none;
   padding: 10px;
 }
 .headtoStudy .studyitem {
-  width: auto;
+  width: 100%;
   height: auto;
-  background-color: none;
+  background-color: #33878f;
+}
+.headtoStudy .studyitem:hover {
+  background-color: #3de9f5 !important;
+}
+.headtoStudy .studyitem:focus {
+  border: none !important;
+  border-color: #1c696e;
+  color: #ce9393;
+  font-weight: bold;
+  outline: none;
+  display: block !important;
 }

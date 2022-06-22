@@ -52,7 +52,16 @@
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #1c696e;
+}
+.studyinfo .openTC .tcitem .tcitem2:focus {
+  border: none !important;
+  border-color: #1c696e;
+  color: #ce9393;
+  font-weight: bold;
+  outline: none;
+  display: block !important;
 }
 .studyinfo .openTC .tcitem .tcitemChild {
   z-index: 90;
@@ -84,7 +93,7 @@
   transition: opacity 300ms;
 }
 .TCitemChildrenMovie-enter {
-  -webkit-transform: scaleY(-1);
+  -webkit-transform: scaleY(0);
 }
 .TCitemChildrenMovie-enter-active {
   -webkit-transform: scaleY(1);

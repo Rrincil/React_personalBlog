@@ -25,6 +25,8 @@ export default function Studyinfo() {
     { id: '01', name: '后台管理系统', children: [{ id: '011', name: '后台22' }], istrue: false },
     { id: '02', name: 'xxx', children: [{ id: '022', name: 'xx22' }], istrue: false },
     { id: '03', name: '购物商城', children: [{ id: '033', name: '购物22' }], istrue: false },
+    { id: '04', name: '个人博客后台管理系统', children: [{ id: '044', name: '博客后台22' }], istrue: false },
+
   ])
   const [showTCitemChildren, usetcitemChildren] = useState(false)
 
@@ -145,7 +147,9 @@ export default function Studyinfo() {
                   return (
                     <div className="col-xs-12" key={item.id}>
                       <div className="tcitem">
-                        <div className='tcitem2' onClick={() => toshowTCitemChildren(item.id)}>{item.name}</div>
+                        <Button variant="primary" className='tcitem2' onClick={() => toshowTCitemChildren(item.id)}>
+                        {item.name}
+                          </Button>
                         {
                           item.children.map(childrenitem => {
                             return (

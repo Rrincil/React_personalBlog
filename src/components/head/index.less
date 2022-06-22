@@ -7,6 +7,9 @@
   z-index: 999;
   height: @headerheight;
   background: burlywood;
+  Button{
+    background-color: #337ab7 !important;
+  }
   &:hover{
     background-color: @redx;
   }
@@ -95,7 +98,7 @@
   padding: 8px;
   padding-top: 0 !important;
   .middlestudy2{
-    width: auto;
+    width: 100%;
     margin-top: 0px;
     height: 300px;
     list-style: none;
@@ -219,8 +222,16 @@
   z-index: 99;
   right: 0px;
   top: 0px;
+  padding: 0;
   border-radius: 6px 0 0 6px;
   opacity: 1;  
+  .smallcate3{
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    border: 1px solid rebeccapurple;
+    background-color: #ffc0c0;
+  }
 }
 
 .alert-enter {
@@ -242,25 +253,43 @@
 }
 
 // 小屏分类侧栏
-.smallcatemovie-enter {
-  opacity: 0;
-  transform: translateX(0);
+// .smallcatemovie-enter {
+//   opacity: 0;
+//   transform: translateX(0);
+// }
+// .smallcatemovie-enter-active {
+//   opacity: 1;
+//   transform: translateX(-30%);
+//   transition: opacity 300ms, transform 1000ms;
+// }
+// .smallcatemovie-exit {
+//   opacity: 1;
+//   transform: translateX(0);
+
+// }
+// .smallcatemovie-exit-active {
+//   opacity: 0;
+//   transform: translateX(-30%);
+//   transition: opacity 300ms, transform 1000ms;
+// }
+
+.smallcatemovie-enter{
+  -webkit-transform: translateX(100%);
 }
-.smallcatemovie-enter-active {
-  opacity: 1;
-  transform: translateX(-30%);
-  transition: opacity 300ms, transform 1000ms;
+.smallcatemovie-enter-active{
+  -webkit-transform: translateX(-20%);
+  transition: all 400ms;
 }
-.smallcatemovie-exit {
-  opacity: 1;
-  transform: translateX(0);
+.smallcatemovie-exit{
+  -webkit-transform: translateX(-20%);
+}
+.smallcatemovie-exit-active{
+  -webkit-transform: translateX(100%);
+  transition: all 400ms;
 
 }
-.smallcatemovie-exit-active {
-  opacity: 0;
-  transform: translateX(-30%);
-  transition: opacity 300ms, transform 1000ms;
-}
+
+
 
 // 小屏幕分类遮罩
 .smallcatemovie2-enter{

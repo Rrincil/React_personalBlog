@@ -345,7 +345,11 @@ class head extends Component {
                       <ul className='smallCate2' style={{ display: this.state.showmask }}>
                         {
                           this.state.studylist.map((item) => {
-                            return <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy} />
+                            return(
+                              <div className="smallcate3">
+                                <HeadtoStudy key={item._id} name={item.name} toshowcate={this.toHeadtoStudy} />
+                              </div>
+                            )
                           })
                         }
                       </ul>

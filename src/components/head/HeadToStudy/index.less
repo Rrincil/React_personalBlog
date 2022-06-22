@@ -1,13 +1,25 @@
 .headtoStudy{
-  width: 80px;
+  width: 100%;
   height: auto;
   float: left;
   background-color: none;
   padding: 10px;
   .studyitem{
-    width: auto;
+    width: 100%;
     height: auto;
-    background-color: none;    
-    
+    // border-color: ;
+ 
+    background-color: rgb(51, 135, 143);    
+    &:hover{
+      background-color:rgb(61, 233, 245) !important;
+    }
+    &:focus{
+      border:none !important;
+      border-color: rgb(28, 105, 110);
+      color: rgb(206, 147, 147);
+      font-weight: bold;
+      outline: none;
+      display: block !important;
+    }
   }
 }

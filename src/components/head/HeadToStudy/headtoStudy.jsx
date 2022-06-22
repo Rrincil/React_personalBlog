@@ -18,9 +18,7 @@ export default function HeadtoStudy(props) {
   }
   return ( 
     <div className='headtoStudy'>
-      <div className="studyitem">
-        <Button onClick={a} variant="primary" >{name}</Button>           
-      </div>
+      <Button className="studyitem" onClick={a} variant="primary" >{name}</Button> 
     </div>
   )
 }
