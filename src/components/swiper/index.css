@@ -4,6 +4,13 @@
   background-color: #1c696e;
 }
 .Swiper .changBorderRadius {
+  height: 100px;
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
+}
+.Swiper .contianer {
+  height: 100%;
+}
+.Swiper .contianer .row {
+  height: 100%;
 }

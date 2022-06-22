@@ -84,10 +84,11 @@ div{
 }
 ```
 ### （3）scale(X,Y) （缩放）
+- transform:scale(2)  /* X和Y方向2倍即从中心放大两倍 */
 - X表示水平方向缩放的倍数，Y表示垂直方向的缩放倍数，而Y是一个可选参数，如果没有设置Y值，则表示X，Y两个方向的缩放倍数是一样的。并以X为准。如：transform:scale(2,1.5):
 ```less
 div{
-  transform:scale(2)  /* X和Y方向2倍 */
+  transform:scale(2)  /* X和Y方向2倍即从中心放大两倍 */
   transform:scale(2,1.5) /*  X方向放大2被 Y方向1.5倍 */
 }
 ```
