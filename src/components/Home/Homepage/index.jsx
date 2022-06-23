@@ -10,7 +10,9 @@ export default function HomePage() {
   ])
   return (
     <div className='HomePage'>
-      <Swiper />
+      <div className="homeswiper">
+        <Swiper />
+      </div>
       <div className='weblist'>
         <div className="container">
           <div className="webtop">

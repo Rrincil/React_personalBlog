@@ -2,7 +2,7 @@
 .Swiper{
   width: 100%;
   height: 300px;
-  
+  margin-bottom: 200px;
   background-color: rgb(28, 105, 110);
   .changBorderRadius{
     height: 100px;
@@ -10,24 +10,88 @@
     border-bottom-left-radius: 0px;
 
   }
-  .contianer{
-    height: 100%;
+  .container{
+    height: 400px;
+    overflow: hidden;
     .row{
+      width: 100%;
       height: 100%;
+      padding: 20px;
+      float: left;
+      .imgitem{
+        width: 100%;
+        height:400px !important;
+        margin-bottom: 10px;
+        background-color: bisque !important;
+      }
     }
   }
 
 
 }
-// .imgitem-enter{
+.imgitemMovie-enter{
+  opacity: 0;
+  transform-origin: 100% 100%;
+  -webkit-transform: translateX(100%)
+    
+}
+.imgitemMovie-enter-active{
+  opacity: 1;
+  transform-origin: 100% 100%;
+
+  -webkit-transform:translateX(0);
+  transition: all 600ms;
+}
+.imgitemMovie-exit{
+  opacity: 1;
+  transform-origin: 100% 100%;
+
+  -webkit-transform: translateX(0);
+
+}
+.imgitemMovie-exit-active{
+  opacity: 0;
+  transform-origin: 100% 100%;
+
+  -webkit-transform:translateX(-100%);
+  transition: all 1200ms;
+
+}
+
+
+
+// .imgitemMovie-enter{
+//   opacity: 0;
     
 // }
-// .imgitem-enter-active{
+// .imgitemMovie-enter-active{
+//   opacity: 1;
+//   transition: all 400ms;
+// }
+// .imgitemMovie-exit{
+//   opacity: 1;
 
 // }
-// .imgitem-exit{
+// .imgitemMovie-exit-active{
+//   opacity: 0;
+//   transition: all 400ms;
 
 // }
-// .imgitem-exit-active{
+
+// .imgitemMovie2-enter{
+//   opacity: 1;
+    
+// }
+// .imgitemMovie2-enter-active{
+//   opacity: 0;
+//   transition: all 400ms;
+// }
+// .imgitemMovie2-exit{
+//   opacity: 0;
+
+// }
+// .imgitemMovie2-exit-active{
+//   opacity: 1;
+//   transition: all 400ms;
 
 // }

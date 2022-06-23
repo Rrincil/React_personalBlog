@@ -1,6 +1,7 @@
 .Swiper {
   width: 100%;
   height: 300px;
+  margin-bottom: 200px;
   background-color: #1c696e;
 }
 .Swiper .changBorderRadius {
@@ -8,9 +9,41 @@
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
 }
-.Swiper .contianer {
-  height: 100%;
+.Swiper .container {
+  height: 400px;
+  overflow: hidden;
 }
-.Swiper .contianer .row {
+.Swiper .container .row {
+  width: 100%;
   height: 100%;
+  padding: 20px;
+  float: left;
+}
+.Swiper .container .row .imgitem {
+  width: 100%;
+  height: 400px !important;
+  margin-bottom: 10px;
+  background-color: bisque !important;
+}
+.imgitemMovie-enter {
+  opacity: 0;
+  transform-origin: 100% 100%;
+  -webkit-transform: translateX(100%);
+}
+.imgitemMovie-enter-active {
+  opacity: 1;
+  transform-origin: 100% 100%;
+  -webkit-transform: translateX(0);
+  transition: all 600ms;
+}
+.imgitemMovie-exit {
+  opacity: 1;
+  transform-origin: 100% 100%;
+  -webkit-transform: translateX(0);
+}
+.imgitemMovie-exit-active {
+  opacity: 0;
+  transform-origin: 100% 100%;
+  -webkit-transform: translateX(-100%);
+  transition: all 1200ms;
 }
