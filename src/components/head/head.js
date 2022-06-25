@@ -53,7 +53,8 @@ class head extends Component {
       { _id: '001', name: 'HTML', age: 15 },
       { _id: '002', name: 'CSS3', age: 15 },
       { _id: '003', name: 'JS', age: 15 },
-      { _id: '004', name: 'Markdown', age: 15 }
+      { _id: '004', name: 'Markdown', age: 15 },
+      { _id: '005', name: 'Sass', age: 15 }
 
     ]
     let AdvancedStudy = [
@@ -156,11 +157,13 @@ class head extends Component {
       { _id: '001', name: 'HTML', age: 15 },
       { _id: '002', name: 'CSS3', age: 15 },
       { _id: '003', name: 'JS', age: 15 },
+      { _id: '005', name: 'Sass', age: 15 },
       { _id: '004', name: 'Markdown', age: 15 },
       { _id: '005', name: 'Jquery', age: 15 },
       { _id: '006', name: 'Vue', age: 15 },
       { _id: '007', name: 'NodeJs', age: 15 },
       { _id: '008', name: 'React', age: 15 }
+
 
     ]
     this.setState({ studylist: a })

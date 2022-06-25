@@ -8,6 +8,7 @@ import ReactLearn from './studyFiles/React.md'
 import Vue from './studyFiles/Vue.md'
 import NodeJsLearn from './studyFiles/NodeJs.md'
 import CSS3Learn from './studyFiles/css.md'
+import sassLearn from './studyFiles/sass.md'
 import './index.less'
 // import axios from 'axios';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -76,7 +77,14 @@ export default function Studyinfo() {
         // console.log(text);
         usemarkdown(markdown => markdown = text)
       });
-  } else {
+    } else if (name === 'Sass') {
+      fetch(sassLearn)
+        .then(res => res.text())
+        .then(text => {
+          // console.log(text);
+          usemarkdown(markdown => markdown = text)
+        });
+    } else {
     // const text = `Here is some JavaScript code:
     // # 没有任何内容
     // `    
