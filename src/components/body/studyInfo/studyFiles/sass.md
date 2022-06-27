@@ -6,7 +6,7 @@
 Css 预处理器是一种专门的编程语言，进行web网页样式设计，然后再编译成正常的CSS文件，以供项目使用。
 增加了编程式特性，无需考虑浏览器兼容问题。如（sass/scss , less ,stylus）
 ```
-!Alt[Css预处理器原理](./img/yuanli.png)
+![Alt Css预处理器原理](./img/yuanli.png)
 ## 1.2 Sass与Scss的关系
 - Sass从第三代开始放弃了缩进风格，并且完全向下兼容普通的css代码，这一带Sass也称为Scss
 # 二、使用Sass
